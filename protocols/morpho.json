@@ -1,0 +1,187 @@
+{
+  "slug": "morpho",
+  "name": "Morpho",
+  "aliases": [
+    "morpho blue",
+    "metamorpho"
+  ],
+  "category": "lending",
+  "defillamaIds": [
+    "4025",
+    "parent#morpho"
+  ],
+  "website": "https://morpho.org",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "morpho-sdks-addresses",
+      "kind": "repo",
+      "url": "https://github.com/morpho-org/sdks/blob/166277bc26a12235256bdf9162da012b80781a1e/packages/morpho-ts/src/addresses.ts",
+      "description": "Morpho SDK address registry (Blue, MetaMorpho and Vault V2 factories), all chains"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+      "label": "Morpho Blue",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": [
+        {
+          "selector": "0xa99aad89",
+          "signature": "supply((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x5c2bea49",
+          "signature": "withdraw((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0x50d8cd4b",
+          "signature": "borrow((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Borrow"
+        },
+        {
+          "selector": "0x20b76e81",
+          "signature": "repay((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Repay"
+        },
+        {
+          "selector": "0x238d6579",
+          "signature": "supplyCollateral((address,address,address,address,uint256),uint256,address,bytes)",
+          "label": "Supply collateral"
+        },
+        {
+          "selector": "0x8720316d",
+          "signature": "withdrawCollateral((address,address,address,address,uint256),uint256,address,address)",
+          "label": "Withdraw collateral"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x1897A8997241C1cD4bD0698647e4EB7213535c24",
+      "label": "MetaMorpho Factory",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": [],
+      "onchainChecks": [
+        {
+          "signature": "MORPHO()",
+          "returns": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xA1D94F746dEfa1928926b84fB2596c06926C0405",
+      "label": "Vault V2 Factory",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": []
+    },
+    {
+      "chainId": 8453,
+      "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+      "label": "Morpho Blue",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": [
+        {
+          "selector": "0xa99aad89",
+          "signature": "supply((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x5c2bea49",
+          "signature": "withdraw((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0x50d8cd4b",
+          "signature": "borrow((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Borrow"
+        },
+        {
+          "selector": "0x20b76e81",
+          "signature": "repay((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Repay"
+        },
+        {
+          "selector": "0x238d6579",
+          "signature": "supplyCollateral((address,address,address,address,uint256),uint256,address,bytes)",
+          "label": "Supply collateral"
+        },
+        {
+          "selector": "0x8720316d",
+          "signature": "withdrawCollateral((address,address,address,address,uint256),uint256,address,address)",
+          "label": "Withdraw collateral"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xFf62A7c278C62eD665133147129245053Bbf5918",
+      "label": "MetaMorpho Factory",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": [],
+      "onchainChecks": [
+        {
+          "signature": "MORPHO()",
+          "returns": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4501125508079A99ebBebCE205DeC9593C2b5857",
+      "label": "Vault V2 Factory",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": []
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9D53d5E3bd5E8d4Cbfa6DB1ca238AEA02E651010",
+      "label": "Morpho Blue",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": [
+        {
+          "selector": "0xa99aad89",
+          "signature": "supply((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x5c2bea49",
+          "signature": "withdraw((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0x50d8cd4b",
+          "signature": "borrow((address,address,address,address,uint256),uint256,uint256,address,address)",
+          "label": "Borrow"
+        },
+        {
+          "selector": "0x20b76e81",
+          "signature": "repay((address,address,address,address,uint256),uint256,uint256,address,bytes)",
+          "label": "Repay"
+        },
+        {
+          "selector": "0x238d6579",
+          "signature": "supplyCollateral((address,address,address,address,uint256),uint256,address,bytes)",
+          "label": "Supply collateral"
+        },
+        {
+          "selector": "0x8720316d",
+          "signature": "withdrawCollateral((address,address,address,address,uint256),uint256,address,address)",
+          "label": "Withdraw collateral"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0FBad98595b0186dA120E41f77C102beb49f803c",
+      "label": "Vault V2 Factory",
+      "sourceId": "morpho-sdks-addresses",
+      "functions": []
+    }
+  ],
+  "incidents": []
+}
