@@ -1,0 +1,165 @@
+{
+  "slug": "wormhole-portal",
+  "name": "Wormhole Portal",
+  "aliases": [
+    "wormhole",
+    "portal bridge"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "1541"
+  ],
+  "website": "https://portalbridge.com",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "wormhole-sdk-token-bridge",
+      "kind": "repo",
+      "url": "https://github.com/wormhole-foundation/wormhole-sdk-ts/blob/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/tokenBridge.ts",
+      "description": "Wormhole Token Bridge addresses (wormhole-sdk-ts)"
+    },
+    {
+      "id": "wormhole-sdk-core",
+      "kind": "repo",
+      "url": "https://github.com/wormhole-foundation/wormhole-sdk-ts/blob/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/core.ts",
+      "description": "Wormhole Core addresses (wormhole-sdk-ts)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
+      "label": "Token Bridge",
+      "sourceId": "wormhole-sdk-token-bridge",
+      "functions": [
+        {
+          "selector": "0x0f5287b0",
+          "signature": "transferTokens(address,uint256,uint16,bytes32,uint256,uint32)",
+          "label": "Transfer tokens"
+        },
+        {
+          "selector": "0xc5a5ebda",
+          "signature": "transferTokensWithPayload(address,uint256,uint16,bytes32,uint32,bytes)",
+          "label": "Transfer tokens with payload"
+        },
+        {
+          "selector": "0x9981509f",
+          "signature": "wrapAndTransferETH(uint16,bytes32,uint256,uint32)",
+          "label": "Wrap and transfer ETH"
+        },
+        {
+          "selector": "0xbee9cdfc",
+          "signature": "wrapAndTransferETHWithPayload(uint16,bytes32,uint32,bytes)",
+          "label": "Wrap and transfer ETH with payload"
+        },
+        {
+          "selector": "0xc6878519",
+          "signature": "completeTransfer(bytes)",
+          "label": "Redeem a transfer (VAA)"
+        },
+        {
+          "selector": "0xc3f511c1",
+          "signature": "completeTransferWithPayload(bytes)",
+          "label": "Redeem a transfer with payload (VAA)"
+        },
+        {
+          "selector": "0xff200cde",
+          "signature": "completeTransferAndUnwrapETH(bytes)",
+          "label": "Redeem a transfer and unwrap to ETH (VAA)"
+        },
+        {
+          "selector": "0x1c8475e4",
+          "signature": "completeTransferAndUnwrapETHWithPayload(bytes)",
+          "label": "Redeem a transfer with payload and unwrap to ETH (VAA)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "wormhole()",
+          "returns": "0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x381752f5458282d317d12C30D2Bd4D6E1FD8841e"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B",
+      "label": "Core Bridge",
+      "sourceId": "wormhole-sdk-core",
+      "functions": [],
+      "proxy": {
+        "implementation": "0x3c3d457f1522D3540AB3325Aa5f1864E34cBA9D0"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627",
+      "label": "Token Bridge",
+      "sourceId": "wormhole-sdk-token-bridge",
+      "functions": [
+        {
+          "selector": "0x0f5287b0",
+          "signature": "transferTokens(address,uint256,uint16,bytes32,uint256,uint32)",
+          "label": "Transfer tokens"
+        },
+        {
+          "selector": "0xc5a5ebda",
+          "signature": "transferTokensWithPayload(address,uint256,uint16,bytes32,uint32,bytes)",
+          "label": "Transfer tokens with payload"
+        },
+        {
+          "selector": "0x9981509f",
+          "signature": "wrapAndTransferETH(uint16,bytes32,uint256,uint32)",
+          "label": "Wrap and transfer ETH"
+        },
+        {
+          "selector": "0xbee9cdfc",
+          "signature": "wrapAndTransferETHWithPayload(uint16,bytes32,uint32,bytes)",
+          "label": "Wrap and transfer ETH with payload"
+        },
+        {
+          "selector": "0xc6878519",
+          "signature": "completeTransfer(bytes)",
+          "label": "Redeem a transfer (VAA)"
+        },
+        {
+          "selector": "0xc3f511c1",
+          "signature": "completeTransferWithPayload(bytes)",
+          "label": "Redeem a transfer with payload (VAA)"
+        },
+        {
+          "selector": "0xff200cde",
+          "signature": "completeTransferAndUnwrapETH(bytes)",
+          "label": "Redeem a transfer and unwrap to ETH (VAA)"
+        },
+        {
+          "selector": "0x1c8475e4",
+          "signature": "completeTransferAndUnwrapETHWithPayload(bytes)",
+          "label": "Redeem a transfer with payload and unwrap to ETH (VAA)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "wormhole()",
+          "returns": "0xbebdb6C8ddC678FfA9f8748f85C815C556Dd8ac6"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x24850c6f61C438823F01B7A3BF2B89B72174Fa9d"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xbebdb6C8ddC678FfA9f8748f85C815C556Dd8ac6",
+      "label": "Core Bridge",
+      "sourceId": "wormhole-sdk-core",
+      "functions": [],
+      "proxy": {
+        "implementation": "0xFc0D459b8c299095Dee743645caAc8Ed3f9aBc4d"
+      }
+    }
+  ],
+  "incidents": []
+}

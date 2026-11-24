@@ -1,0 +1,139 @@
+{
+  "slug": "relay",
+  "name": "Relay",
+  "aliases": [
+    "relay protocol",
+    "relay link"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "8916"
+  ],
+  "website": "https://relay.link",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "relay-depository-prod",
+      "kind": "repo",
+      "url": "https://github.com/relayprotocol/relay-depository/blob/458a64c310a3504aaf37e112af9a8707c9eb11ad/packages/ethereum-vm/deployments/addresses.prod.json",
+      "description": "RelayDepository prod addresses (relayprotocol/relay-depository)"
+    },
+    {
+      "id": "relay-periphery-v3",
+      "kind": "repo",
+      "url": "https://github.com/relayprotocol/relay-periphery/blob/e221935f54df03f9f73f2645ff688370a87033d8/deployments/v3/addresses.json",
+      "description": "RelayRouter v3 addresses (relayprotocol/relay-periphery)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+      "label": "RelayDepository",
+      "sourceId": "relay-depository-prod",
+      "functions": [
+        {
+          "selector": "0x49290c1c",
+          "signature": "depositNative(address,bytes32)",
+          "label": "Deposit native token"
+        },
+        {
+          "selector": "0xe8017952",
+          "signature": "depositErc20(address,address,uint256,bytes32)",
+          "label": "Deposit ERC-20"
+        },
+        {
+          "selector": "0x5a1ee3ac",
+          "signature": "depositErc20(address,address,bytes32)",
+          "label": "Deposit ERC-20 (full allowance)"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+      "label": "RelayRouter",
+      "sourceId": "relay-periphery-v3",
+      "functions": [
+        {
+          "selector": "0xcd6e13f7",
+          "signature": "multicall((address,bool,uint256,bytes)[],address,address,bytes)",
+          "label": "Execute a multicall (bridge or swap)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+      "label": "RelayDepository",
+      "sourceId": "relay-depository-prod",
+      "functions": [
+        {
+          "selector": "0x49290c1c",
+          "signature": "depositNative(address,bytes32)",
+          "label": "Deposit native token"
+        },
+        {
+          "selector": "0xe8017952",
+          "signature": "depositErc20(address,address,uint256,bytes32)",
+          "label": "Deposit ERC-20"
+        },
+        {
+          "selector": "0x5a1ee3ac",
+          "signature": "depositErc20(address,address,bytes32)",
+          "label": "Deposit ERC-20 (full allowance)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+      "label": "RelayRouter",
+      "sourceId": "relay-periphery-v3",
+      "functions": [
+        {
+          "selector": "0xcd6e13f7",
+          "signature": "multicall((address,bool,uint256,bytes)[],address,address,bytes)",
+          "label": "Execute a multicall (bridge or swap)"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+      "label": "RelayDepository",
+      "sourceId": "relay-depository-prod",
+      "functions": [
+        {
+          "selector": "0x49290c1c",
+          "signature": "depositNative(address,bytes32)",
+          "label": "Deposit native token"
+        },
+        {
+          "selector": "0xe8017952",
+          "signature": "depositErc20(address,address,uint256,bytes32)",
+          "label": "Deposit ERC-20"
+        },
+        {
+          "selector": "0x5a1ee3ac",
+          "signature": "depositErc20(address,address,bytes32)",
+          "label": "Deposit ERC-20 (full allowance)"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+      "label": "RelayRouter",
+      "sourceId": "relay-periphery-v3",
+      "functions": [
+        {
+          "selector": "0xcd6e13f7",
+          "signature": "multicall((address,bool,uint256,bytes)[],address,address,bytes)",
+          "label": "Execute a multicall (bridge or swap)"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

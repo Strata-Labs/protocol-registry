@@ -1,0 +1,83 @@
+{
+  "slug": "chainlink-ccip",
+  "name": "Chainlink CCIP",
+  "aliases": [
+    "chainlink ccip",
+    "ccip"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "7973",
+    "parent#chainlink"
+  ],
+  "website": "https://chain.link/cross-chain",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "chainlink-docs-ccip-chains",
+      "kind": "repo",
+      "url": "https://github.com/smartcontractkit/documentation/blob/e72fe55c846a60fa29ec14bb16460ab9a0f7920b/src/config/data/ccip/v1_2_0/mainnet/chains.json",
+      "description": "CCIP mainnet chains: routers and RMN proxies (smartcontractkit/documentation)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x80226fc0Ee2b096224EeAc085Bb9a8cba1146f7D",
+      "label": "Router",
+      "sourceId": "chainlink-docs-ccip-chains",
+      "functions": [
+        {
+          "selector": "0x96f4e9f9",
+          "signature": "ccipSend(uint64,(bytes,bytes,(address,uint256)[],address,bytes))",
+          "label": "Send a CCIP message or token transfer"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "getArmProxy()",
+          "returns": "0x411dE17f12D1A34ecC7F45f49844626267c75e81"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x881e3A65B4d4a04dD529061dd0071cf975F58bCD",
+      "label": "Router",
+      "sourceId": "chainlink-docs-ccip-chains",
+      "functions": [
+        {
+          "selector": "0x96f4e9f9",
+          "signature": "ccipSend(uint64,(bytes,bytes,(address,uint256)[],address,bytes))",
+          "label": "Send a CCIP message or token transfer"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "getArmProxy()",
+          "returns": "0xC842c69d54F83170C42C4d556B4F6B2ca53Dd3E8"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x06fC836cf9839B1cd891C440A0a45242DA6Ae1c9",
+      "label": "Router",
+      "sourceId": "chainlink-docs-ccip-chains",
+      "functions": [
+        {
+          "selector": "0x96f4e9f9",
+          "signature": "ccipSend(uint64,(bytes,bytes,(address,uint256)[],address,bytes))",
+          "label": "Send a CCIP message or token transfer"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "getArmProxy()",
+          "returns": "0xe8464c353210Cc398A45dB2454FBc5BCd25fFf20"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}
