@@ -84,5 +84,12 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2023-03-30",
+      "title": "Rocket Pool: Phishing",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

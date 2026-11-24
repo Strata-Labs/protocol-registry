@@ -276,5 +276,18 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2024-10-31",
+      "title": "1inch Swap: Supply Chain Attack",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    },
+    {
+      "date": "2025-03-07",
+      "title": "1inch Swap: Arbitrary External Call",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

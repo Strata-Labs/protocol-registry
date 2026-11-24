@@ -161,5 +161,12 @@
       }
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2022-02-02",
+      "title": "Portal: Signature Verification Flaw",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

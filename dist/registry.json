@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-24T14:42:47.695Z",
-  "gitSha": "9422891d586e054b4e6dc7192bc0f270d03a9d19",
-  "digest": "3a0b20f213f4dca3088ac9903b747b706b591d617c1ed5c846bac76349980f30",
+  "generatedAt": "2026-11-24T14:56:50.014Z",
+  "gitSha": "aaa4bb966485de437c6288278359d2d6356522c2",
+  "digest": "20343272e6e0650370a501122703f29af68d0305031bd7bf214ad847ef3fc7d2",
   "protocols": [
     {
       "slug": "0x",
@@ -380,7 +380,20 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2024-10-31",
+          "title": "1inch Swap: Supply Chain Attack",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        },
+        {
+          "date": "2025-03-07",
+          "title": "1inch Swap: Arbitrary External Call",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "aave-v3",
@@ -692,7 +705,20 @@
           }
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2026-07-17",
+          "title": "Across: Spoofed Event Log",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        },
+        {
+          "date": "2026-11-10",
+          "title": "Across: DNS Hijack",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "aerodrome",
@@ -885,7 +911,14 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2025-11-21",
+          "title": "Aerodrome V1: DNS Hijack",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "base-bridge",
@@ -1815,7 +1848,14 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2023-02-07",
+          "title": "CoWSwap: Arbitrary External Call",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "curve",
@@ -1945,7 +1985,20 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2022-08-09",
+          "title": "Curve DEX: DNS Hijack",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        },
+        {
+          "date": "2023-07-30",
+          "title": "Curve DEX: Vyper Compiler Bug",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "eigenlayer",
@@ -3174,7 +3227,14 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2026-05-31",
+          "title": "Fluid Lending: Private Key Compromised",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "kyberswap",
@@ -4834,7 +4894,14 @@
           ]
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2023-03-30",
+          "title": "Rocket Pool: Phishing",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     },
     {
       "slug": "sky",
@@ -6524,7 +6591,14 @@
           }
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2022-02-02",
+          "title": "Portal: Signature Verification Flaw",
+          "url": "https://defillama.com/hacks",
+          "source": "defillama"
+        }
+      ]
     }
   ]
 }

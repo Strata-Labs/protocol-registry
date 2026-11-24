@@ -126,5 +126,18 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2022-08-09",
+      "title": "Curve DEX: DNS Hijack",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    },
+    {
+      "date": "2023-07-30",
+      "title": "Curve DEX: Vyper Compiler Bug",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

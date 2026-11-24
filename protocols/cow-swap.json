@@ -124,5 +124,12 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2023-02-07",
+      "title": "CoWSwap: Arbitrary External Call",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

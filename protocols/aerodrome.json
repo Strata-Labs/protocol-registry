@@ -189,5 +189,12 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2025-11-21",
+      "title": "Aerodrome V1: DNS Hijack",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

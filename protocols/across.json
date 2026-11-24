@@ -108,5 +108,18 @@
       }
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2026-07-17",
+      "title": "Across: Spoofed Event Log",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "Across: DNS Hijack",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }

@@ -815,5 +815,12 @@
       ]
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "date": "2026-05-31",
+      "title": "Fluid Lending: Private Key Compromised",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
 }
