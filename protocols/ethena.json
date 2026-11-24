@@ -1,0 +1,82 @@
+{
+  "slug": "ethena",
+  "name": "Ethena",
+  "aliases": [
+    "ethena labs",
+    "usde",
+    "susde"
+  ],
+  "category": "staking",
+  "defillamaIds": [
+    "4133",
+    "parent#ethena"
+  ],
+  "website": "https://ethena.fi",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "ethena-docs-key-addresses",
+      "kind": "docs",
+      "url": "https://docs.ethena.fi/technical-design/key-addresses",
+      "description": "Ethena docs, Key Addresses page (GitBook; no repo backs it, so this source is not pinned to a commit)"
+    },
+    {
+      "id": "onchain-susde-asset",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x9D39A5DE30e57443BfF2A8307A4256c8797A3497#readContract",
+      "description": "sUSDe.asset() must return the USDe token listed on the same docs page; verify-onchain checks it on every run"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+      "label": "sUSDe (StakedUSDeV2)",
+      "sourceId": "ethena-docs-key-addresses",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Stake USDe"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Stake USDe (exact shares)"
+        },
+        {
+          "selector": "0xcdac52ed",
+          "signature": "cooldownAssets(uint256)",
+          "label": "Start unstake cooldown (assets)"
+        },
+        {
+          "selector": "0x9343d9e1",
+          "signature": "cooldownShares(uint256)",
+          "label": "Start unstake cooldown (shares)"
+        },
+        {
+          "selector": "0xf2888dbb",
+          "signature": "unstake(address)",
+          "label": "Claim USDe after cooldown"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw USDe (cooldown off)"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem sUSDe (cooldown off)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}
