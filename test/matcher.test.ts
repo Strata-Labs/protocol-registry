@@ -79,6 +79,18 @@ describe("feed parsers", () => {
     const [i] = parseLlama([{ date: 1773273600, name: "Aave V3", technique: "Oracle", defillamaId: "1599", source: "", description: "d" }]);
     expect(i).toMatchObject({ date: "2026-03-12", defillamaId: "1599", title: "Aave V3: Oracle", url: "https://defillama.com/hacks", source: "defillama" });
   });
+  it("adds amount, returned funds and chain, and keeps the id stable", () => {
+    const h = { date: 1773273600, name: "Across", technique: "Spoofed Event Log", amount: 12_340_000, returnedFunds: 1_200_000, chain: ["Ethereum", "Base"], defillamaId: "9", source: "https://x.test/post", description: "d" };
+    const [i] = parseLlama([h]);
+    expect(i).toMatchObject({ title: "Across: Spoofed Event Log, $12.3M lost, $1.2M returned", text: "Chain: Ethereum, Base. d", url: "https://x.test/post", altTitles: ["Across: Spoofed Event Log"], id: "llama:9:1773273600:Across" });
+    expect(parseLlama([{ ...h, amount: 820_000, returnedFunds: 0 }])[0]!.title).toBe("Across: Spoofed Event Log, $820K lost");
+    expect(parseLlama([{ ...h, amount: null, returnedFunds: null }])[0]!.title).toBe("Across: Spoofed Event Log");
+  });
+  it("does not duplicate an incident recorded under the old title", () => {
+    const p = proto({ incidents: [{ date: "2026-11-23", title: "Aave V3: Oracle", url: "https://defillama.com/hacks", source: "defillama" }] });
+    applyItems([p], [llama({ title: "Aave V3: Oracle, $5M lost", altTitles: ["Aave V3: Oracle"] })], { lastRun: null, seen: [] });
+    expect(p.incidents).toHaveLength(1);
+  });
   it("parses the rekt RSS feed", () => {
     const xml = `<?xml version="1.0"?><rss><channel><item><title><![CDATA[Aave rekt]]></title><link>https://www.rekt.news/aave</link><guid>https://www.rekt.news/aave</guid><pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate><description><![CDATA[drained]]></description></item></channel></rss>`;
     expect(parseRss(xml)).toEqual([

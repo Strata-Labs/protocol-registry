@@ -7,6 +7,7 @@ export type Item = {
   title: string;
   url: string;
   text: string;
+  altTitles?: string[]; // earlier title formats of the same item, so recorded incidents are not duplicated
   defillamaId?: string;
 };
 export type State = { lastRun: string | null; seen: string[] };
@@ -44,7 +45,8 @@ export function applyItems(protocols: Protocol[], items: Item[], state: State): 
     seen.add(item.id);
     for (const p of protocols) {
       if (!matches(p, item)) continue;
-      if (addIncident(p, toIncident(item))) res.recorded.push({ slug: p.slug, item });
+      const known = p.incidents.some((i) => i.source === item.source && i.date === item.date && (item.altTitles ?? []).includes(i.title));
+      if (!known && addIncident(p, toIncident(item))) res.recorded.push({ slug: p.slug, item });
       if (isNew && !backfill && Date.parse(item.date) >= cutoff) {
         if (freeze(p, `Reported exploit (${item.source}, ${item.date}): ${item.title}`)) res.frozen.push({ slug: p.slug, item });
       }
