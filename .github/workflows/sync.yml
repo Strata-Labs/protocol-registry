@@ -1,0 +1,55 @@
+name: sync
+on:
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Compare pinned sources with their default branches
+        run: npx tsx scripts/sync.ts --report "$RUNNER_TEMP/sync.md"
+      - name: Open a pull request or an issue
+        run: |
+          [ -s "$RUNNER_TEMP/sync.md" ] || exit 0
+          {
+            cat "$RUNNER_TEMP/sync.md"
+            echo
+            echo "Check against the moved pins:"
+            echo '```'
+            npx tsx scripts/sync.ts --check 2>&1 || true
+            echo '```'
+          } > "$RUNNER_TEMP/body.md"
+          if git diff --quiet -- protocols; then
+            gh issue create --title "Source drift needs review" --body-file "$RUNNER_TEMP/body.md"
+            exit 0
+          fi
+          npm run validate
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B bot/sync-sources
+          git add protocols dist
+          git commit -m "sync: move source pins where addresses changed"
+          git push --force origin bot/sync-sources
+          if [ -z "$(gh pr list --head bot/sync-sources --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base main --head bot/sync-sources --title "Source addresses changed upstream" --body-file "$RUNNER_TEMP/body.md"
+          fi

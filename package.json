@@ -1,0 +1,25 @@
+{
+  "name": "protocol-registry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "validate": "tsx scripts/validate.ts",
+    "verify": "tsx scripts/verify-onchain.ts",
+    "incidents": "tsx scripts/incidents.ts",
+    "sync": "tsx scripts/sync.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "ajv": "8.17.1",
+    "viem": "2.21.55"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
+  }
+}

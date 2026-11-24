@@ -1,0 +1,383 @@
+{
+  "slug": "uniswap",
+  "name": "Uniswap",
+  "aliases": [
+    "uniswap"
+  ],
+  "category": "dex",
+  "defillamaIds": [
+    "parent#uniswap",
+    "2196",
+    "2197",
+    "2198",
+    "5690"
+  ],
+  "website": "https://uniswap.org",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "uniswap-docs-v4",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/docs/blob/d49ac3efc2ed8c8291aaf0e0194fd9c5b3c5d55a/content/protocols/v4/deployments.mdx",
+      "description": "Uniswap v4 deployments, all chains"
+    },
+    {
+      "id": "uniswap-docs-v3-ethereum",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/docs/blob/d49ac3efc2ed8c8291aaf0e0194fd9c5b3c5d55a/content/protocols/v3/deployments/v3-ethereum-deployments.mdx",
+      "description": "Uniswap v3 deployments, Ethereum"
+    },
+    {
+      "id": "universal-router-ethereum",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/universal-router/blob/3be05ae044039af7610414da0ac36e4944eea566/deploy-addresses/mainnet.json",
+      "description": "Universal Router deploy addresses, Ethereum"
+    },
+    {
+      "id": "uniswap-docs-v3-base",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/docs/blob/d49ac3efc2ed8c8291aaf0e0194fd9c5b3c5d55a/content/protocols/v3/deployments/v3-base-deployments.mdx",
+      "description": "Uniswap v3 deployments, Base"
+    },
+    {
+      "id": "universal-router-base",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/universal-router/blob/3be05ae044039af7610414da0ac36e4944eea566/deploy-addresses/base.json",
+      "description": "Universal Router deploy addresses, Base"
+    },
+    {
+      "id": "uniswap-docs-v3-robinhood",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/docs/blob/d49ac3efc2ed8c8291aaf0e0194fd9c5b3c5d55a/content/protocols/v3/deployments/v3-robinhood-chain-deployments.mdx",
+      "description": "Uniswap v3 deployments, Robinhood Chain"
+    },
+    {
+      "id": "universal-router-robinhood",
+      "kind": "repo",
+      "url": "https://github.com/Uniswap/universal-router/blob/3be05ae044039af7610414da0ac36e4944eea566/deploy-addresses/robinhood.json",
+      "description": "Universal Router deploy addresses, Robinhood Chain"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "label": "SwapRouter02 (v3)",
+      "sourceId": "uniswap-docs-v3-ethereum",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "label": "PoolManager (v4)",
+      "sourceId": "uniswap-docs-v4",
+      "functions": []
+    },
+    {
+      "chainId": 1,
+      "address": "0x66a9893cC07D91D95644AEDD05D03f95e1dBA8Af",
+      "label": "Universal Router v2",
+      "sourceId": "universal-router-ethereum",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x000000000004444c5dc75cB358380D2e3dE08A90"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA",
+      "label": "Universal Router 2.1.1",
+      "sourceId": "universal-router-ethereum",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x000000000004444c5dc75cB358380D2e3dE08A90"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x23617e59A5925b2A4Bf75d73ff6711cD0b29De85",
+      "label": "Universal Router 2.1.2",
+      "sourceId": "universal-router-ethereum",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x000000000004444c5dc75cB358380D2e3dE08A90"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x2626664c2603336E57B271c5C0b26F421741e481",
+      "label": "SwapRouter02 (v3)",
+      "sourceId": "uniswap-docs-v3-base",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+      "label": "PoolManager (v4)",
+      "sourceId": "uniswap-docs-v4",
+      "functions": []
+    },
+    {
+      "chainId": 8453,
+      "address": "0x6fF5693b99212Da76ad316178A184AB56D299b43",
+      "label": "Universal Router v2",
+      "sourceId": "universal-router-base",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x498581fF718922c3f8e6A244956aF099B2652b2b"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xFdf682F51FE81Aa4898F0AE2163d8A55c127fbC7",
+      "label": "Universal Router 2.1.1",
+      "sourceId": "universal-router-base",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x498581fF718922c3f8e6A244956aF099B2652b2b"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xd6145b2D3F379919E8CdEda7B97e37c4b2Ca9c40",
+      "label": "Universal Router 2.1.2",
+      "sourceId": "universal-router-base",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x498581fF718922c3f8e6A244956aF099B2652b2b"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0xCaf681a66D020601342297493863E78C959E5cb2",
+      "label": "SwapRouter02 (v3)",
+      "sourceId": "uniswap-docs-v3-robinhood",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "label": "PoolManager (v4)",
+      "sourceId": "uniswap-docs-v4",
+      "functions": []
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "label": "Universal Router 2.1.1",
+      "sourceId": "universal-router-robinhood",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x8366a39CC670B4001A1121B8F6A443A643e40951"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x204FAca1764B154221e35c0d20aBb3c525710498",
+      "label": "Universal Router 2.1.2",
+      "sourceId": "universal-router-robinhood",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "poolManager()",
+          "returns": "0x8366a39CC670B4001A1121B8F6A443A643e40951"
+        }
+      ]
+    }
+  ],
+  "incidents": [
+    {
+      "date": "2020-04-18",
+      "title": "Uniswap V1: Reentrancy",
+      "url": "https://defillama.com/hacks",
+      "source": "defillama"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+name: incidents
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: incidents
+  cancel-in-progress: false
+jobs:
+  incidents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RPC_URL_1: ${{ secrets.RPC_URL_1 }}
+      RPC_URL_8453: ${{ secrets.RPC_URL_8453 }}
+      RPC_URL_4663: ${{ secrets.RPC_URL_4663 }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check feeds and chain
+        id: check
+        continue-on-error: true
+        run: |
+          rc=0
+          npx tsx scripts/incidents.ts --report "$RUNNER_TEMP/freeze.md" || rc=$?
+          npx tsx scripts/verify-onchain.ts --freeze --report "$RUNNER_TEMP/freeze.md" || rc=$?
+          exit $rc
+      - name: Rebuild dist
+        run: npm run validate
+      - name: Commit to main
+        run: |
+          git add protocols state dist
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -s "$RUNNER_TEMP/freeze.md" ]; then msg="freeze: protocol marked frozen"; else msg="chore: update incident state"; fi
+          git commit -m "$msg"
+          git push origin HEAD:main
+      - name: Open an issue for a freeze
+        run: |
+          [ -s "$RUNNER_TEMP/freeze.md" ] || exit 0
+          {
+            echo "A protocol was frozen automatically. Review it, then unfreeze through a pull request that sets status back to ok."
+            echo
+            cat "$RUNNER_TEMP/freeze.md"
+          } > "$RUNNER_TEMP/issue.md"
+          gh issue create --title "Protocol frozen $(date -u +%F)" --body-file "$RUNNER_TEMP/issue.md"
+      - name: Fail the run if a feed or RPC call failed
+        if: steps.check.outcome == 'failure'
+        run: exit 1

@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "protocol.schema.json",
+  "title": "Protocol registry entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slug", "name", "category", "defillamaIds", "website", "status", "sources", "contracts", "incidents"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "aliases": {
+      "description": "Extra names used only to match news feeds (rekt.news).",
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "category": { "enum": ["lending", "staking", "dex", "aggregator", "bridge", "yield"] },
+    "defillamaIds": {
+      "description": "DefiLlama protocol ids, or parent ids such as parent#aave. A hack on any of them freezes the entry.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "website": { "type": "string", "pattern": "^https://" },
+    "status": { "enum": ["ok", "watch", "frozen"] },
+    "statusReason": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "url", "description"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "kind": { "enum": ["repo", "onchain", "docs"] },
+          "url": {
+            "description": "repo: https://github.com/<owner>/<repo>/blob/<40-hex sha>/<path>",
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "contracts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["chainId", "address", "label", "sourceId", "functions"],
+        "properties": {
+          "chainId": { "enum": [1, 8453, 4663] },
+          "address": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" },
+          "label": { "type": "string", "minLength": 1 },
+          "sourceId": { "type": "string" },
+          "proxy": {
+            "description": "EIP-1967 proxy. implementation is recorded by verify-onchain --write; admin is omitted when the proxy keeps it outside the admin slot.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["implementation"],
+            "properties": {
+              "implementation": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" },
+              "admin": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" }
+            }
+          },
+          "functions": {
+            "description": "User-facing actions only. Never approve, permit, transfer or other operator calls.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["selector", "signature", "label"],
+              "properties": {
+                "selector": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+                "signature": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(.*\\)$" },
+                "label": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "onchainChecks": {
+            "description": "Zero-argument address getters that must return the given address (registry cross-checks).",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["signature", "returns"],
+              "properties": {
+                "signature": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(\\)$" },
+                "returns": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "incidents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "title", "url", "source"],
+        "properties": {
+          "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "title": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "pattern": "^https://" },
+          "source": { "enum": ["defillama", "rekt", "onchain"] }
+        }
+      }
+    }
+  },
+  "if": { "properties": { "status": { "const": "frozen" } } },
+  "then": { "required": ["statusReason"] }
+}
