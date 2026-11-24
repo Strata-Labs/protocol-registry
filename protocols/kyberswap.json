@@ -1,0 +1,89 @@
+{
+  "slug": "kyberswap",
+  "name": "KyberSwap",
+  "aliases": [
+    "kyberswap"
+  ],
+  "category": "aggregator",
+  "defillamaIds": [
+    "parent#kyberswap",
+    "3982"
+  ],
+  "website": "https://kyberswap.com",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "kyberswap-docs-contracts",
+      "kind": "repo",
+      "url": "https://github.com/KyberNetwork/kyberswap-documentation/blob/d7e1c7ebda84f4e89b6d8c13af663c043453feee/developer-guide/aggregator-api/contracts.md",
+      "description": "KyberSwap Aggregator contracts and addresses per chain, documentation repo"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+      "label": "MetaAggregationRouterV2",
+      "sourceId": "kyberswap-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe21fd0e9",
+          "signature": "swap((address,address,bytes,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes))",
+          "label": "Swap"
+        },
+        {
+          "selector": "0x59e50fed",
+          "signature": "swapGeneric((address,address,bytes,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes))",
+          "label": "Swap, generic mode"
+        },
+        {
+          "selector": "0x8af033fb",
+          "signature": "swapSimpleMode(address,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes,bytes)",
+          "label": "Swap, simple mode"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+      "label": "MetaAggregationRouterV2",
+      "sourceId": "kyberswap-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe21fd0e9",
+          "signature": "swap((address,address,bytes,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes))",
+          "label": "Swap"
+        },
+        {
+          "selector": "0x59e50fed",
+          "signature": "swapGeneric((address,address,bytes,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes))",
+          "label": "Swap, generic mode"
+        },
+        {
+          "selector": "0x8af033fb",
+          "signature": "swapSimpleMode(address,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes,bytes)",
+          "label": "Swap, simple mode"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+      "label": "MetaAggregationRouterV2",
+      "sourceId": "kyberswap-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe21fd0e9",
+          "signature": "swap((address,address,bytes,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes))",
+          "label": "Swap"
+        },
+        {
+          "selector": "0x8af033fb",
+          "signature": "swapSimpleMode(address,(address,address,address[],uint256[],address[],uint256[],address,uint256,uint256,uint256,bytes),bytes,bytes)",
+          "label": "Swap, simple mode"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

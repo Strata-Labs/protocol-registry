@@ -1,0 +1,128 @@
+{
+  "slug": "cow-swap",
+  "name": "CoW Swap",
+  "aliases": [
+    "cow swap",
+    "cowswap",
+    "cow protocol"
+  ],
+  "category": "aggregator",
+  "defillamaIds": [
+    "2643"
+  ],
+  "website": "https://cow.fi",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "cow-contracts-networks",
+      "kind": "repo",
+      "url": "https://github.com/cowprotocol/contracts/blob/53cc6b74d455d09d73dd8ae57e06d2a557d8000b/networks.json",
+      "description": "CoW Protocol core contract addresses per chain"
+    },
+    {
+      "id": "cow-ethflow-ethereum",
+      "kind": "repo",
+      "url": "https://github.com/cowprotocol/ethflowcontract/blob/f0678483c33394c335d7fa493770b9eefdbca8e3/broadcast/Deploy.sol/1/deployment.prod.json",
+      "description": "CoWSwapEthFlow production deployment, Ethereum"
+    },
+    {
+      "id": "cow-ethflow-base",
+      "kind": "repo",
+      "url": "https://github.com/cowprotocol/ethflowcontract/blob/f0678483c33394c335d7fa493770b9eefdbca8e3/broadcast/Deploy.sol/8453/deployment.prod.json",
+      "description": "CoWSwapEthFlow production deployment, Base"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+      "label": "GPv2Settlement",
+      "sourceId": "cow-contracts-networks",
+      "functions": [
+        {
+          "selector": "0xec6cb13f",
+          "signature": "setPreSignature(bytes,bool)",
+          "label": "Pre-sign (or revoke) an order for the caller"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "vaultRelayer()",
+          "returns": "0xC92E8bdf79f0507f65a392b0ab4667716BFE0110"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xC92E8bdf79f0507f65a392b0ab4667716BFE0110",
+      "label": "GPv2VaultRelayer (token approval spender)",
+      "sourceId": "cow-contracts-networks",
+      "functions": []
+    },
+    {
+      "chainId": 1,
+      "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+      "label": "CoWSwapEthFlow",
+      "sourceId": "cow-ethflow-ethereum",
+      "functions": [
+        {
+          "selector": "0x322bba21",
+          "signature": "createOrder((address,address,uint256,uint256,bytes32,uint256,uint32,bool,int64))",
+          "label": "Create a sell-ETH order"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "cowSwapSettlement()",
+          "returns": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+      "label": "GPv2Settlement",
+      "sourceId": "cow-contracts-networks",
+      "functions": [
+        {
+          "selector": "0xec6cb13f",
+          "signature": "setPreSignature(bytes,bool)",
+          "label": "Pre-sign (or revoke) an order for the caller"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "vaultRelayer()",
+          "returns": "0xC92E8bdf79f0507f65a392b0ab4667716BFE0110"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xC92E8bdf79f0507f65a392b0ab4667716BFE0110",
+      "label": "GPv2VaultRelayer (token approval spender)",
+      "sourceId": "cow-contracts-networks",
+      "functions": []
+    },
+    {
+      "chainId": 8453,
+      "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+      "label": "CoWSwapEthFlow",
+      "sourceId": "cow-ethflow-base",
+      "functions": [
+        {
+          "selector": "0x322bba21",
+          "signature": "createOrder((address,address,uint256,uint256,bytes32,uint256,uint32,bool,int64))",
+          "label": "Create a sell-ETH order"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "cowSwapSettlement()",
+          "returns": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

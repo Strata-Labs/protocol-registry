@@ -1,0 +1,106 @@
+{
+  "slug": "curve",
+  "name": "Curve",
+  "aliases": [
+    "curve finance"
+  ],
+  "category": "dex",
+  "defillamaIds": [
+    "parent#curve-finance",
+    "3"
+  ],
+  "website": "https://curve.finance",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "curve-router-ng-readme",
+      "kind": "repo",
+      "url": "https://github.com/curvefi/curve-router-ng/blob/2d49362b11a3275a29f3f77df15df6c4b7b1a75c/README.md",
+      "description": "Curve Router NG deployments (Ethereum v1.2, Base)"
+    },
+    {
+      "id": "curve-router-ng-release-v1-1",
+      "kind": "repo",
+      "url": "https://github.com/curvefi/curve-router-ng/blob/2d49362b11a3275a29f3f77df15df6c4b7b1a75c/deployments/release-Router%20v1.1-29-06-2024.txt",
+      "description": "Curve Router NG v1.1 release, Ethereum"
+    },
+    {
+      "id": "curve-address-provider-id2",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98#readContract",
+      "description": "AddressProvider.get_id_info(2) 'Exchange Router' returned the Ethereum v1.1 router (0x16C6...5353) and the Base router (0x4f37...fc1F) at seed time; checked by hand, verify-onchain cannot pass an argument"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x16C6521Dff6baB339122a0FE25a9116693265353",
+      "label": "Router NG v1.1",
+      "sourceId": "curve-router-ng-release-v1-1",
+      "functions": [
+        {
+          "selector": "0x371dc447",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256)",
+          "label": "Swap via route"
+        },
+        {
+          "selector": "0x5c9c18e2",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5])",
+          "label": "Swap via route (with pools)"
+        },
+        {
+          "selector": "0xc872a3c5",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
+          "label": "Swap via route (with pools and receiver)"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x45312ea0eFf7E09C83CBE249fa1d7598c4C8cd4e",
+      "label": "Router NG v1.2",
+      "sourceId": "curve-router-ng-readme",
+      "functions": [
+        {
+          "selector": "0x371dc447",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256)",
+          "label": "Swap via route"
+        },
+        {
+          "selector": "0x5c9c18e2",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5])",
+          "label": "Swap via route (with pools)"
+        },
+        {
+          "selector": "0xc872a3c5",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
+          "label": "Swap via route (with pools and receiver)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4f37A9d177470499A2dD084621020b023fcffc1F",
+      "label": "Router NG",
+      "sourceId": "curve-router-ng-readme",
+      "functions": [
+        {
+          "selector": "0x371dc447",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256)",
+          "label": "Swap via route"
+        },
+        {
+          "selector": "0x5c9c18e2",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5])",
+          "label": "Swap via route (with pools)"
+        },
+        {
+          "selector": "0xc872a3c5",
+          "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
+          "label": "Swap via route (with pools and receiver)"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

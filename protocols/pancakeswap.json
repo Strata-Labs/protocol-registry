@@ -1,0 +1,364 @@
+{
+  "slug": "pancakeswap",
+  "name": "PancakeSwap",
+  "aliases": [
+    "pancakeswap",
+    "pancake swap"
+  ],
+  "category": "dex",
+  "defillamaIds": [
+    "parent#pancakeswap",
+    "194",
+    "2769",
+    "2529",
+    "6133"
+  ],
+  "website": "https://pancakeswap.finance",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "pancake-docs-v3-addresses",
+      "kind": "repo",
+      "url": "https://github.com/pancakeswap/pancake-developer/blob/d620e1d0975fee8b55d9ada49fe8b68cc35dc234/docs/pages/contracts/v3/addresses.md",
+      "description": "PancakeSwap v3 addresses incl. Smart Router, developer docs repo"
+    },
+    {
+      "id": "pancake-docs-universal-router",
+      "kind": "repo",
+      "url": "https://github.com/pancakeswap/pancake-developer/blob/d620e1d0975fee8b55d9ada49fe8b68cc35dc234/docs/pages/contracts/universal-router/addresses.md",
+      "description": "PancakeSwap v3 and Infinity Universal Router addresses, developer docs repo"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+      "label": "Smart Router (v3, v2, stable)",
+      "sourceId": "pancake-docs-v3-addresses",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single V3 pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop V3"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single V3 pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop V3"
+        },
+        {
+          "selector": "0x472b43f3",
+          "signature": "swapExactTokensForTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact in, V2 pools"
+        },
+        {
+          "selector": "0x42712a67",
+          "signature": "swapTokensForExactTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact out, V2 pools"
+        },
+        {
+          "selector": "0xb4554231",
+          "signature": "exactInputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact in, StableSwap pools"
+        },
+        {
+          "selector": "0xb4c4e555",
+          "signature": "exactOutputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact out, StableSwap pools"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        },
+        {
+          "selector": "0x1f0464d1",
+          "signature": "multicall(bytes32,bytes[])",
+          "label": "Multicall (ETH swaps, with previous blockhash)"
+        },
+        {
+          "selector": "0xac9650d8",
+          "signature": "multicall(bytes[])",
+          "label": "Multicall (ETH swaps)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "factory()",
+          "returns": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+        },
+        {
+          "signature": "deployer()",
+          "returns": "0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x65b382653f7C31bC0Af67f188122035461ec9C76",
+      "label": "Universal Router (v3)",
+      "sourceId": "pancake-docs-universal-router",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86",
+      "label": "Smart Router (v3, v2, stable)",
+      "sourceId": "pancake-docs-v3-addresses",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single V3 pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop V3"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single V3 pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop V3"
+        },
+        {
+          "selector": "0x472b43f3",
+          "signature": "swapExactTokensForTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact in, V2 pools"
+        },
+        {
+          "selector": "0x42712a67",
+          "signature": "swapTokensForExactTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact out, V2 pools"
+        },
+        {
+          "selector": "0xb4554231",
+          "signature": "exactInputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact in, StableSwap pools"
+        },
+        {
+          "selector": "0xb4c4e555",
+          "signature": "exactOutputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact out, StableSwap pools"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        },
+        {
+          "selector": "0x1f0464d1",
+          "signature": "multicall(bytes32,bytes[])",
+          "label": "Multicall (ETH swaps, with previous blockhash)"
+        },
+        {
+          "selector": "0xac9650d8",
+          "signature": "multicall(bytes[])",
+          "label": "Multicall (ETH swaps)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "factory()",
+          "returns": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+        },
+        {
+          "signature": "deployer()",
+          "returns": "0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xFE6508f0015C778Bdcc1fB5465bA5ebE224C9912",
+      "label": "Universal Router (v3)",
+      "sourceId": "pancake-docs-universal-router",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB",
+      "label": "Infinity Universal Router",
+      "sourceId": "pancake-docs-universal-router",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "vault()",
+          "returns": "0x238a358808379702088667322f80aC48bAd5e6c4"
+        },
+        {
+          "signature": "clPoolManager()",
+          "returns": "0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+      "label": "Smart Router (v3, v2, stable)",
+      "sourceId": "pancake-docs-v3-addresses",
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "signature": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact in, single V3 pool"
+        },
+        {
+          "selector": "0xb858183f",
+          "signature": "exactInput((bytes,address,uint256,uint256))",
+          "label": "Swap exact in, multi-hop V3"
+        },
+        {
+          "selector": "0x5023b4df",
+          "signature": "exactOutputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+          "label": "Swap exact out, single V3 pool"
+        },
+        {
+          "selector": "0x09b81346",
+          "signature": "exactOutput((bytes,address,uint256,uint256))",
+          "label": "Swap exact out, multi-hop V3"
+        },
+        {
+          "selector": "0x472b43f3",
+          "signature": "swapExactTokensForTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact in, V2 pools"
+        },
+        {
+          "selector": "0x42712a67",
+          "signature": "swapTokensForExactTokens(uint256,uint256,address[],address)",
+          "label": "Swap exact out, V2 pools"
+        },
+        {
+          "selector": "0xb4554231",
+          "signature": "exactInputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact in, StableSwap pools"
+        },
+        {
+          "selector": "0xb4c4e555",
+          "signature": "exactOutputStableSwap(address[],uint256[],uint256,uint256,address)",
+          "label": "Swap exact out, StableSwap pools"
+        },
+        {
+          "selector": "0x5ae401dc",
+          "signature": "multicall(uint256,bytes[])",
+          "label": "Multicall (ETH swaps, with deadline)"
+        },
+        {
+          "selector": "0x1f0464d1",
+          "signature": "multicall(bytes32,bytes[])",
+          "label": "Multicall (ETH swaps, with previous blockhash)"
+        },
+        {
+          "selector": "0xac9650d8",
+          "signature": "multicall(bytes[])",
+          "label": "Multicall (ETH swaps)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "factory()",
+          "returns": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+        },
+        {
+          "signature": "deployer()",
+          "returns": "0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0xE28c0e44F4016b073db20cF28971CAc6ce3664D3",
+      "label": "Universal Router (v3)",
+      "sourceId": "pancake-docs-universal-router",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x57fc55F719DF19B4b90A03F9D78E1177D002E504",
+      "label": "Infinity Universal Router",
+      "sourceId": "pancake-docs-universal-router",
+      "functions": [
+        {
+          "selector": "0x3593564c",
+          "signature": "execute(bytes,bytes[],uint256)",
+          "label": "Execute swap commands (with deadline)"
+        },
+        {
+          "selector": "0x24856bc3",
+          "signature": "execute(bytes,bytes[])",
+          "label": "Execute swap commands"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "vault()",
+          "returns": "0x4F922d5B15e6691e0469663E4F5C4177f23c5FaF"
+        },
+        {
+          "signature": "clPoolManager()",
+          "returns": "0xeE04c68742e6Bf434bE8039580D2e89BBE55bc6f"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

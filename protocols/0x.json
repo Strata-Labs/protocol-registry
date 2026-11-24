@@ -1,0 +1,99 @@
+{
+  "slug": "0x",
+  "name": "0x",
+  "aliases": [
+    "0x protocol",
+    "0x settler"
+  ],
+  "category": "aggregator",
+  "defillamaIds": [
+    "parent#0x-protocol",
+    "2116",
+    "4628"
+  ],
+  "website": "https://0x.org",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "0x-settler-chain-config",
+      "kind": "repo",
+      "url": "https://github.com/0xProject/0x-settler/blob/ad7c844c6a2a263ae6ba6c72700534aae9bb4a48/chain_config.json",
+      "description": "0x Settler chain config: deployer/registry and AllowanceHolder per chain"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+      "label": "AllowanceHolder",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [
+        {
+          "selector": "0x2213bc0b",
+          "signature": "exec(address,address,uint256,address,bytes)",
+          "label": "Execute a Settler swap through AllowanceHolder"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x00000000000004533Fe15556B1E086BB1A72cEae",
+      "label": "Settler deployer/registry (current Settler = ownerOf(featureId))",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [],
+      "proxy": {
+        "implementation": "0xc07920cDe8D4914302605DEEe32D744e6328ff9e",
+        "admin": "0xf36b9f50E59870A24F42F9Ba43b2aD0A4b8f2F51"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+      "label": "AllowanceHolder",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [
+        {
+          "selector": "0x2213bc0b",
+          "signature": "exec(address,address,uint256,address,bytes)",
+          "label": "Execute a Settler swap through AllowanceHolder"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x00000000000004533Fe15556B1E086BB1A72cEae",
+      "label": "Settler deployer/registry (current Settler = ownerOf(featureId))",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [],
+      "proxy": {
+        "implementation": "0x0e992C001E375785846EEb9cd69411B53f30f24B",
+        "admin": "0xf36b9f50E59870A24F42F9Ba43b2aD0A4b8f2F51"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+      "label": "AllowanceHolder",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [
+        {
+          "selector": "0x2213bc0b",
+          "signature": "exec(address,address,uint256,address,bytes)",
+          "label": "Execute a Settler swap through AllowanceHolder"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x00000000000004533Fe15556B1E086BB1A72cEae",
+      "label": "Settler deployer/registry (current Settler = ownerOf(featureId))",
+      "sourceId": "0x-settler-chain-config",
+      "functions": [],
+      "proxy": {
+        "implementation": "0xE648d68f60B8676d269E5035290fb9CB18a1Ad0E",
+        "admin": "0xf36b9f50E59870A24F42F9Ba43b2aD0A4b8f2F51"
+      }
+    }
+  ],
+  "incidents": []
+}
