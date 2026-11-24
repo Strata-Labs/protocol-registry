@@ -1,0 +1,64 @@
+{
+  "slug": "rocket-pool",
+  "name": "Rocket Pool",
+  "aliases": [
+    "rocketpool",
+    "reth"
+  ],
+  "category": "staking",
+  "defillamaIds": [
+    "900"
+  ],
+  "website": "https://rocketpool.net",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "rocketpool-docs-contracts",
+      "kind": "repo",
+      "url": "https://github.com/rocket-pool/docs.rocketpool.net/blob/c5732d3b293f6e8acfc70142da57aff60253363e/docs/en/protocol/contracts-integrations.md",
+      "description": "Rocket Pool docs repo, protocol contracts and integrations (Ethereum mainnet)"
+    },
+    {
+      "id": "onchain-rocketstorage",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46#readContract",
+      "description": "RocketStorage.getAddress(keccak256(contract.addressrocketDepositPool)) and (contract.addressrocketTokenRETH) returned the deposit pool and rETH listed here (read by hand, since the lookup takes a key); Rocket Pool upgrades by swapping addresses in storage, so re-read after any protocol upgrade"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
+      "label": "RocketStorage",
+      "sourceId": "rocketpool-docs-contracts",
+      "functions": []
+    },
+    {
+      "chainId": 1,
+      "address": "0xCE15294273CFb9D9b628F4D61636623decDF4fdC",
+      "label": "RocketDepositPool",
+      "sourceId": "rocketpool-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xd0e30db0",
+          "signature": "deposit()",
+          "label": "Stake ETH for rETH"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+      "label": "rETH",
+      "sourceId": "rocketpool-docs-contracts",
+      "functions": [
+        {
+          "selector": "0x42966c68",
+          "signature": "burn(uint256)",
+          "label": "Burn rETH for ETH"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}
