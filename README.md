@@ -58,7 +58,7 @@ Rules for entries:
 | `npm run sync -- --check` | Every contract address appears in its source file at the pinned commit. |
 | `npm run verify` | Needs `RPC_URL_<chainId>`. Code exists at each address, proxy implementation/admin match the EIP-1967 slots, `paused()` is not true, `onchainChecks` hold, selectors exist in the bytecode (warning only). `--write` records a missing proxy implementation; `--write --refresh` overwrites after a reviewed upgrade. |
 | `npm run incidents` | Pulls DefiLlama `/hacks` and the rekt.news RSS, matches them to protocols, records incidents and freezes. |
-| `npm run sync` | Compares each pinned source file with its default branch and moves the pin where the addresses differ. |
+| `npm run sync` | Compares the cited addresses of each pinned source file with its default branch and moves the pin when one is gone or changed. |
 | `npm test` | vitest: validation rules and the incident matcher, on fixtures. |
 
 ## Consuming it
@@ -75,17 +75,17 @@ https://raw.githubusercontent.com/Strata-Labs/protocol-registry/<sha>/dist/regis
 
 Freezing is automatic and unfreezing is manual.
 
-- `incidents.yml` runs hourly. It freezes a protocol when a feed item is new and not older than three days before the previous run, and matches it:
+- `incidents.yml` runs hourly. It freezes a protocol when a feed item is new and dated no earlier than three days before the previous run (DefiLlama dates are day-granular and lag the event, so a strict "after the last run" would miss same-day hacks), and matches it:
   - DefiLlama hacks match by `defillamaId` in `defillamaIds`.
   - rekt.news items match when a protocol name or alias is in the headline and the headline or summary has incident language.
   - The first run (empty `state/seen.json`) backfills history into `incidents` without freezing. A processed item never freezes twice, so unfreezing sticks.
 - The same run freezes on on-chain drift: proxy implementation or admin changed, `paused()` true, no code at an address, or an `onchainChecks` mismatch.
 - A freeze commits `status`, `statusReason`, the incident and the rebuilt `dist` to `main` and opens an issue.
 - Unfreezing is only a reviewed pull request that sets `status` back to `ok`. After a legitimate upgrade the PR also runs `npm run verify -- --write --refresh`.
-- `sync.yml` runs daily. If a repo source's file has different addresses on its default branch it opens a pull request that moves the pin, with the added and removed addresses in the body. It never commits to `main`. The PR check fails if a cited address is missing at the new pin.
+- `sync.yml` runs daily. If a cited address is gone or changed in a repo source's default branch it opens a pull request that moves the pin, listing those addresses in the body. It never commits to `main`. The PR check fails if a cited address is missing at the new pin.
 
 ## Repository setup
 
 - Secrets `RPC_URL_1`, `RPC_URL_8453`, `RPC_URL_4663` (used by validate and incidents).
-- Actions may write to `main` (`incidents.yml` pushes with `GITHUB_TOKEN`) and create pull requests.
+- Actions may create pull requests, and `main` must allow the Actions bot to push (no required-PR rule for it), or freezes cannot land.
 - Pull requests opened by `GITHUB_TOKEN` do not trigger `validate.yml`; `sync.yml` runs the address check itself and prints it in the PR body.
