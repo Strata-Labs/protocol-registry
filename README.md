@@ -89,6 +89,6 @@ Freezing is automatic and unfreezing is manual.
 
 ## Repository setup
 
-- Secrets `RPC_URL_1`, `RPC_URL_8453`, `RPC_URL_4663` (used by validate and incidents).
+- Secret `ALCHEMY_API_KEY` (an Alchemy app with Ethereum, Base and Robinhood Chain; Node API only). The workflows build `RPC_URL_<chainId>` from it.
 - Actions may create pull requests, and `main` must allow the Actions bot to push (no required-PR rule for it), or freezes cannot land.
 - Pull requests opened by `GITHUB_TOKEN` do not trigger `validate.yml`; `sync.yml` runs the address check itself and prints it in the PR body.

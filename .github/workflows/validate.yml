@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      RPC_URL_1: ${{ secrets.RPC_URL_1 }}
-      RPC_URL_8453: ${{ secrets.RPC_URL_8453 }}
-      RPC_URL_4663: ${{ secrets.RPC_URL_4663 }}
+      RPC_URL_1: https://eth-mainnet.g.alchemy.com/v2/${{ secrets.ALCHEMY_API_KEY }}
+      RPC_URL_8453: https://base-mainnet.g.alchemy.com/v2/${{ secrets.ALCHEMY_API_KEY }}
+      RPC_URL_4663: https://robinhood-mainnet.g.alchemy.com/v2/${{ secrets.ALCHEMY_API_KEY }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
