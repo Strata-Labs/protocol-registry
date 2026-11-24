@@ -1,0 +1,819 @@
+{
+  "slug": "fluid",
+  "name": "Fluid",
+  "aliases": [
+    "fluid lending",
+    "instadapp fluid",
+    "fluid protocol"
+  ],
+  "category": "lending",
+  "defillamaIds": [
+    "4167",
+    "parent#fluid"
+  ],
+  "website": "https://fluid.io",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "fluid-deployments",
+      "kind": "repo",
+      "url": "https://github.com/Instadapp/fluid-contracts-public/blob/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+      "description": "Fluid contracts repo, deployments list (all chains)"
+    },
+    {
+      "id": "onchain-fluid-lending-factory",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#readContract",
+      "description": "LendingFactory.allTokens() listed every fToken here on Ethereum and Base when they were added (read by hand, since it returns a list); verify-onchain checks each fToken asset() against the repo deployment file"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x54B91A0D94cb471F37f949c60F7Fa7935b551D03",
+      "label": "LendingFactory",
+      "sourceId": "fluid-deployments",
+      "functions": []
+    },
+    {
+      "chainId": 1,
+      "address": "0x6A29A46E21C730DcA1d8b23d637c101cec605C5B",
+      "label": "fGHO (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x9Fb7b4477576Fe5B32be4C1843aFB1e55F251B33",
+      "label": "fUSDC (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+      "label": "fUSDT (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x15e8c742614b5D8Db4083A41Df1A14F5D2bFB400",
+      "label": "fUSDtb (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+      "label": "fWETH (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        },
+        {
+          "selector": "0x33bb7f91",
+          "signature": "depositNative(address)",
+          "label": "Deposit ETH"
+        },
+        {
+          "selector": "0x02279b4a",
+          "signature": "depositNative(address,uint256)",
+          "label": "Deposit ETH (min shares)"
+        },
+        {
+          "selector": "0x80541187",
+          "signature": "mintNative(uint256,address,uint256)",
+          "label": "Mint shares with ETH (max assets)"
+        },
+        {
+          "selector": "0x2126e91e",
+          "signature": "withdrawNative(uint256,address,address)",
+          "label": "Withdraw ETH"
+        },
+        {
+          "selector": "0xeb26620c",
+          "signature": "withdrawNative(uint256,address,address,uint256)",
+          "label": "Withdraw ETH (max shares)"
+        },
+        {
+          "selector": "0x3badef91",
+          "signature": "redeemNative(uint256,address,address)",
+          "label": "Redeem for ETH"
+        },
+        {
+          "selector": "0x2ae06214",
+          "signature": "redeemNative(uint256,address,address,uint256)",
+          "label": "Redeem for ETH (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x2BBE31d63E6813E3AC858C04dae43FB2a72B0D11",
+      "label": "fsUSDS (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x2411802D8BEA09be0aF8fD8D08314a63e706b29C",
+      "label": "fwstETH (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x54B91A0D94cb471F37f949c60F7Fa7935b551D03",
+      "label": "LendingFactory",
+      "sourceId": "fluid-deployments",
+      "functions": []
+    },
+    {
+      "chainId": 8453,
+      "address": "0x1943FA26360f038230442525Cf1B9125b5DCB401",
+      "label": "fEURC (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x8DdbfFA3CFda2355a23d6B11105AC624BDbE3631",
+      "label": "fGHO (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x6Bb7a212910682DCFdbd5BCBb3e28FB4E8da10Ee"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xf42f5795D9ac7e9D757dB633D693cD548Cfd9169",
+      "label": "fUSDC (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x9272D6153133175175Bc276512B2336BE3931CE9",
+      "label": "fWETH (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        },
+        {
+          "selector": "0x33bb7f91",
+          "signature": "depositNative(address)",
+          "label": "Deposit ETH"
+        },
+        {
+          "selector": "0x02279b4a",
+          "signature": "depositNative(address,uint256)",
+          "label": "Deposit ETH (min shares)"
+        },
+        {
+          "selector": "0x80541187",
+          "signature": "mintNative(uint256,address,uint256)",
+          "label": "Mint shares with ETH (max assets)"
+        },
+        {
+          "selector": "0x2126e91e",
+          "signature": "withdrawNative(uint256,address,address)",
+          "label": "Withdraw ETH"
+        },
+        {
+          "selector": "0xeb26620c",
+          "signature": "withdrawNative(uint256,address,address,uint256)",
+          "label": "Withdraw ETH (max shares)"
+        },
+        {
+          "selector": "0x3badef91",
+          "signature": "redeemNative(uint256,address,address)",
+          "label": "Redeem for ETH"
+        },
+        {
+          "selector": "0x2ae06214",
+          "signature": "redeemNative(uint256,address,address,uint256)",
+          "label": "Redeem for ETH (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x4200000000000000000000000000000000000006"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xf62e339f21d8018940f188F6987Bcdf02A849619",
+      "label": "fsUSDS (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x5875eEE11Cf8398102FdAd704C9E96607675467a"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x896E39f0E9af61ECA9dD2938E14543506ef2c2b5",
+      "label": "fwstETH (Fluid lending)",
+      "sourceId": "fluid-deployments",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0xbc157ac1",
+          "signature": "deposit(uint256,address,uint256)",
+          "label": "Deposit (min shares)"
+        },
+        {
+          "selector": "0x836a1040",
+          "signature": "mint(uint256,address,uint256)",
+          "label": "Mint shares (max assets)"
+        },
+        {
+          "selector": "0xa318c1a4",
+          "signature": "withdraw(uint256,address,address,uint256)",
+          "label": "Withdraw (max shares)"
+        },
+        {
+          "selector": "0x9f40a7b3",
+          "signature": "redeem(uint256,address,address,uint256)",
+          "label": "Redeem (min assets)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}
