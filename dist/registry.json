@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-24T14:32:29.159Z",
-  "gitSha": "83ff64664374625c83e1e906d7c6654834743640",
-  "digest": "9aba1ca7739129732c7a098e40d8c18729a61ed6bbfeab0ebc4fa567851c7593",
+  "generatedAt": "2026-11-24T14:36:12.706Z",
+  "gitSha": "42307767cd151a64ff67fc2ba4d32fc1f8bafcf8",
+  "digest": "0848e03969e2ee1e1ef33a60d9792091679c9542397602e042e965f0791eca8c",
   "protocols": [
     {
       "slug": "0x",
@@ -1847,7 +1847,7 @@
           "id": "curve-address-provider-id2",
           "kind": "onchain",
           "url": "https://etherscan.io/address/0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98#readContract",
-          "description": "AddressProvider.get_id_info(2) 'Exchange Router' returned the Ethereum v1.1 router (0x16C6...5353) and the Base router (0x4f37...fc1F) at seed time; checked by hand, verify-onchain cannot pass an argument"
+          "description": "AddressProvider.get_id_info(2) 'Exchange Router' must return the Ethereum v1.1 router and the Base router; verify-onchain runs the lookup on each chain on every run"
         }
       ],
       "contracts": [
@@ -1871,6 +1871,18 @@
               "selector": "0xc872a3c5",
               "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
               "label": "Swap via route (with pools and receiver)"
+            }
+          ],
+          "onchainChecks": [
+            {
+              "signature": "get_id_info(uint256)",
+              "args": [
+                2
+              ],
+              "target": "0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98",
+              "outputs": "((address,string,uint256,uint256))",
+              "outputIndex": 0,
+              "returns": "0x16C6521Dff6baB339122a0FE25a9116693265353"
             }
           ]
         },
@@ -1917,6 +1929,18 @@
               "selector": "0xc872a3c5",
               "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
               "label": "Swap via route (with pools and receiver)"
+            }
+          ],
+          "onchainChecks": [
+            {
+              "signature": "get_id_info(uint256)",
+              "args": [
+                2
+              ],
+              "target": "0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98",
+              "outputs": "((address,string,uint256,uint256))",
+              "outputIndex": 0,
+              "returns": "0x4f37A9d177470499A2dD084621020b023fcffc1F"
             }
           ]
         }
@@ -3293,7 +3317,10 @@
               "signature": "submit(address)",
               "label": "Stake ETH for stETH"
             }
-          ]
+          ],
+          "selectorCheck": {
+            "implementation": "implementation()"
+          }
         },
         {
           "chainId": 1,
@@ -4086,7 +4113,10 @@
               "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
               "label": "Swap exact pt for sy"
             }
-          ]
+          ],
+          "selectorCheck": {
+            "facet": "selectorToFacet(bytes4)"
+          }
         },
         {
           "chainId": 8453,
@@ -4219,7 +4249,10 @@
               "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
               "label": "Swap exact pt for sy"
             }
-          ]
+          ],
+          "selectorCheck": {
+            "facet": "selectorToFacet(bytes4)"
+          }
         },
         {
           "chainId": 4663,
@@ -4352,7 +4385,10 @@
               "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
               "label": "Swap exact pt for sy"
             }
-          ]
+          ],
+          "selectorCheck": {
+            "facet": "selectorToFacet(bytes4)"
+          }
         }
       ],
       "incidents": []
@@ -4697,7 +4733,7 @@
           "id": "onchain-rocketstorage",
           "kind": "onchain",
           "url": "https://etherscan.io/address/0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46#readContract",
-          "description": "RocketStorage.getAddress(keccak256(contract.addressrocketDepositPool)) and (contract.addressrocketTokenRETH) returned the deposit pool and rETH listed here (read by hand, since the lookup takes a key); Rocket Pool upgrades by swapping addresses in storage, so re-read after any protocol upgrade"
+          "description": "RocketStorage.getAddress(keccak256('contract.address' + name)) must return the deposit pool and rETH listed here; verify-onchain runs both lookups on every run. Rocket Pool upgrades by swapping addresses in storage, so a protocol upgrade shows up as drift"
         }
       ],
       "contracts": [
@@ -4719,6 +4755,18 @@
               "signature": "deposit()",
               "label": "Stake ETH for rETH"
             }
+          ],
+          "onchainChecks": [
+            {
+              "signature": "getAddress(bytes32)",
+              "args": [
+                {
+                  "keccak": "contract.addressrocketDepositPool"
+                }
+              ],
+              "target": "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
+              "returns": "0xCE15294273CFb9D9b628F4D61636623decDF4fdC"
+            }
           ]
         },
         {
@@ -4731,6 +4779,18 @@
               "selector": "0x42966c68",
               "signature": "burn(uint256)",
               "label": "Burn rETH for ETH"
+            }
+          ],
+          "onchainChecks": [
+            {
+              "signature": "getAddress(bytes32)",
+              "args": [
+                {
+                  "keccak": "contract.addressrocketTokenRETH"
+                }
+              ],
+              "target": "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
+              "returns": "0xae78736Cd615f374D3085123A210448E74Fc6393"
             }
           ]
         }
@@ -4764,7 +4824,7 @@
           "id": "onchain-sky-chainlog",
           "kind": "onchain",
           "url": "https://etherscan.io/address/0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F#readContract",
-          "description": "Chainlog.getAddress(SUSDS, DAI_USDS, MKR_SKY) returned these three addresses when they were added (read by hand, since the lookup takes a key); verify-onchain checks that each contract's token getters point at the expected tokens"
+          "description": "Chainlog.getAddress(SUSDS, DAI_USDS, MKR_SKY) must return sUSDS and the two converters; verify-onchain runs the lookups, and also checks each contract's token getters"
         }
       ],
       "contracts": [
@@ -4809,6 +4869,16 @@
             {
               "signature": "usds()",
               "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+            },
+            {
+              "signature": "getAddress(bytes32)",
+              "args": [
+                {
+                  "ascii": "SUSDS"
+                }
+              ],
+              "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+              "returns": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD"
             }
           ],
           "proxy": {
@@ -4840,6 +4910,16 @@
             {
               "signature": "usds()",
               "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+            },
+            {
+              "signature": "getAddress(bytes32)",
+              "args": [
+                {
+                  "ascii": "DAI_USDS"
+                }
+              ],
+              "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+              "returns": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A"
             }
           ]
         },
@@ -4863,6 +4943,16 @@
             {
               "signature": "sky()",
               "returns": "0x56072C95FAA701256059aa122697B133aDEd9279"
+            },
+            {
+              "signature": "getAddress(bytes32)",
+              "args": [
+                {
+                  "ascii": "MKR_SKY"
+                }
+              ],
+              "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+              "returns": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a"
             }
           ]
         }

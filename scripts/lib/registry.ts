@@ -16,7 +16,17 @@ export type Contract = {
   sourceId: string;
   proxy?: { implementation: string; admin?: string };
   functions: { selector: string; signature: string; label: string }[];
-  onchainChecks?: { signature: string; returns: string }[];
+  onchainChecks?: OnchainCheck[];
+  selectorCheck?: { implementation: string } | { facet: string };
+};
+export type ArgValue = string | number | boolean | { ascii: string } | { keccak: string };
+export type OnchainCheck = {
+  signature: string;
+  args?: ArgValue[];
+  target?: string;
+  outputs?: string;
+  outputIndex?: number;
+  returns: string;
 };
 export type Incident = { date: string; title: string; url: string; source: "defillama" | "rekt" | "onchain" };
 export type Protocol = {
@@ -83,7 +93,12 @@ export function checkProtocol(p: unknown, file = "protocol"): string[] {
       checksummed(c.proxy.implementation, `${at} proxy.implementation`);
       if (c.proxy.admin) checksummed(c.proxy.admin, `${at} proxy.admin`);
     }
-    for (const k of c.onchainChecks ?? []) checksummed(k.returns, `${at} ${k.signature} returns`);
+    for (const k of c.onchainChecks ?? []) {
+      checksummed(k.returns, `${at} ${k.signature} returns`);
+      if (k.target) checksummed(k.target, `${at} ${k.signature} target`);
+      const arity = k.signature.slice(k.signature.indexOf("(") + 1, -1).split(",").filter(Boolean).length;
+      if ((k.args?.length ?? 0) !== arity) err(`${at}: ${k.signature} takes ${arity} argument(s), args has ${k.args?.length ?? 0}`);
+    }
     for (const f of c.functions) {
       let sel: string;
       try {

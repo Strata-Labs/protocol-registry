@@ -61,18 +61,37 @@ async function checkContract(p: Protocol, c: Contract, out: Finding[]): Promise<
     }
   }
 
-  if ((await tryCall<boolean>(cl, c.address, "paused()", "bool")) === true) at("drift", "paused() is true");
+  if ((await tryCall<boolean>(cl, c.address, "paused()", { outputs: "(bool)" })) === true) at("drift", "paused() is true");
 
   for (const k of c.onchainChecks ?? []) {
-    const got = await tryCall<string>(cl, c.address, k.signature, "address");
-    if (got === undefined) at("drift", `${k.signature} no longer answers`);
-    else if (getAddress(got) !== getAddress(k.returns)) at("drift", `${k.signature} returns ${got}, registry says ${k.returns}`);
+    const raw = await tryCall<unknown>(cl, k.target ?? c.address, k.signature, { args: k.args, outputs: k.outputs });
+    const got = Array.isArray(raw) ? raw[k.outputIndex ?? 0] : raw;
+    const label = `${k.signature}(${(k.args ?? []).map((a) => (typeof a === "object" ? JSON.stringify(a) : String(a))).join(",")})`;
+    if (typeof got !== "string") at("drift", `${label} no longer answers`);
+    else if (getAddress(got) !== getAddress(k.returns)) at("drift", `${label} returns ${got}, registry says ${k.returns}`);
   }
 
   // Selector presence is a sanity check (dispatchers embed PUSH4 selectors), so it only warns.
-  const body = (c.proxy && impl ? await cl.getCode({ address: impl as Hex }) : code) ?? "0x";
+  // Follow the code to where it runs: EIP-1967 implementation, a declared implementation getter, or per-selector facets.
+  const codeOf = async (a: string) => (await cl.getCode({ address: a as Hex })) ?? "0x";
+  let body = c.proxy && impl ? await codeOf(impl) : code;
+  const sc = c.selectorCheck;
+  if (sc && "implementation" in sc) {
+    const target = await tryCall<string>(cl, c.address, sc.implementation);
+    if (target) body = await codeOf(target);
+    else at("warn", `${sc.implementation} did not answer; selectors checked against the proxy`);
+  }
   for (const f of c.functions) {
-    if (!body.includes(f.selector.slice(2))) at("warn", `selector ${f.selector} (${f.signature}) not found in bytecode`);
+    let where = body;
+    if (sc && "facet" in sc) {
+      const facet = await tryCall<string>(cl, c.address, sc.facet, { args: [f.selector] });
+      if (!facet || /^0x0{40}$/.test(facet)) {
+        at("warn", `selector ${f.selector} (${f.signature}) has no facet`);
+        continue;
+      }
+      where = await codeOf(facet);
+    }
+    if (!where.includes(f.selector.slice(2))) at("warn", `selector ${f.selector} (${f.signature}) not found in bytecode`);
   }
   return changed;
 }

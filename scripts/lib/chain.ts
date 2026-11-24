@@ -1,4 +1,5 @@
-import { createPublicClient, getAddress, http, parseAbi, type Hex, type PublicClient } from "viem";
+import { createPublicClient, getAddress, http, keccak256, parseAbi, stringToHex, toHex, type Hex, type PublicClient } from "viem";
+import type { ArgValue } from "./registry.ts";
 
 export const IMPL_SLOT = "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc" as Hex;
 export const ADMIN_SLOT = "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" as Hex;
@@ -29,14 +30,25 @@ export function isTransportError(e: unknown): boolean {
   return false;
 }
 
-/** Calls a zero-argument view; returns undefined if the contract has no such function. */
-export async function tryCall<T>(c: PublicClient, address: string, signature: string, returns: string): Promise<T | undefined> {
+function coerce(type: string, a: ArgValue): unknown {
+  if (typeof a === "object") {
+    if ("ascii" in a) return stringToHex(a.ascii, { size: 32 });
+    return keccak256(toHex(a.keccak));
+  }
+  if (type.startsWith("uint") || type.startsWith("int")) return BigInt(a as string | number);
+  return a;
+}
+
+/** Calls a view. Returns undefined if the contract has no such function (or it reverts). */
+export async function tryCall<T>(c: PublicClient, address: string, signature: string, opts: { args?: ArgValue[]; outputs?: string } = {}): Promise<T | undefined> {
   const name = signature.slice(0, signature.indexOf("("));
+  const types = signature.slice(signature.indexOf("(") + 1, -1).split(",").filter(Boolean);
   try {
     return (await c.readContract({
       address: address as Hex,
-      abi: parseAbi([`function ${name}() view returns (${returns})`]),
+      abi: parseAbi([`function ${signature} view returns ${opts.outputs ?? "(address)"}`] as any),
       functionName: name,
+      args: (opts.args ?? []).map((a, i) => coerce(types[i]!, a)),
     })) as T;
   } catch (e) {
     if (isTransportError(e)) throw e;

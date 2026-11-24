@@ -170,7 +170,10 @@
           "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
           "label": "Swap exact pt for sy"
         }
-      ]
+      ],
+      "selectorCheck": {
+        "facet": "selectorToFacet(bytes4)"
+      }
     },
     {
       "chainId": 8453,
@@ -303,7 +306,10 @@
           "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
           "label": "Swap exact pt for sy"
         }
-      ]
+      ],
+      "selectorCheck": {
+        "facet": "selectorToFacet(bytes4)"
+      }
     },
     {
       "chainId": 4663,
@@ -436,7 +442,10 @@
           "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
           "label": "Swap exact pt for sy"
         }
-      ]
+      ],
+      "selectorCheck": {
+        "facet": "selectorToFacet(bytes4)"
+      }
     }
   ],
   "incidents": []

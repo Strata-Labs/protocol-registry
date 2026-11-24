@@ -87,3 +87,20 @@ describe("parseRepoUrl", () => {
     });
   });
 });
+
+describe("onchainChecks", () => {
+  it("accepts typed args and requires one per parameter", () => {
+    const p = base();
+    p.contracts[0]!.onchainChecks = [{ signature: "getAddress(bytes32)", args: [{ ascii: "SUSDS" }], target: POOL, returns: POOL }];
+    expect(problems(p)).toEqual([]);
+    p.contracts[0]!.onchainChecks = [{ signature: "getAddress(bytes32)", returns: POOL }];
+    expect(problems(p).join("\n")).toMatch(/takes 1 argument/);
+  });
+  it("accepts a selectorCheck hint and rejects an unknown one", () => {
+    const p = base();
+    p.contracts[0]!.selectorCheck = { facet: "selectorToFacet(bytes4)" };
+    expect(problems(p)).toEqual([]);
+    p.contracts[0]!.selectorCheck = { facet: "bad()" };
+    expect(problems(p).length).toBeGreaterThan(0);
+  });
+});

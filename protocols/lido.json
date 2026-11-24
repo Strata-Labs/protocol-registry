@@ -59,7 +59,10 @@
           "signature": "submit(address)",
           "label": "Stake ETH for stETH"
         }
-      ]
+      ],
+      "selectorCheck": {
+        "implementation": "implementation()"
+      }
     },
     {
       "chainId": 1,

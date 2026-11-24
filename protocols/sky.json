@@ -25,7 +25,7 @@
       "id": "onchain-sky-chainlog",
       "kind": "onchain",
       "url": "https://etherscan.io/address/0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F#readContract",
-      "description": "Chainlog.getAddress(SUSDS, DAI_USDS, MKR_SKY) returned these three addresses when they were added (read by hand, since the lookup takes a key); verify-onchain checks that each contract's token getters point at the expected tokens"
+      "description": "Chainlog.getAddress(SUSDS, DAI_USDS, MKR_SKY) must return sUSDS and the two converters; verify-onchain runs the lookups, and also checks each contract's token getters"
     }
   ],
   "contracts": [
@@ -70,6 +70,16 @@
         {
           "signature": "usds()",
           "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+        },
+        {
+          "signature": "getAddress(bytes32)",
+          "args": [
+            {
+              "ascii": "SUSDS"
+            }
+          ],
+          "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+          "returns": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD"
         }
       ],
       "proxy": {
@@ -101,6 +111,16 @@
         {
           "signature": "usds()",
           "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+        },
+        {
+          "signature": "getAddress(bytes32)",
+          "args": [
+            {
+              "ascii": "DAI_USDS"
+            }
+          ],
+          "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+          "returns": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A"
         }
       ]
     },
@@ -124,6 +144,16 @@
         {
           "signature": "sky()",
           "returns": "0x56072C95FAA701256059aa122697B133aDEd9279"
+        },
+        {
+          "signature": "getAddress(bytes32)",
+          "args": [
+            {
+              "ascii": "MKR_SKY"
+            }
+          ],
+          "target": "0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F",
+          "returns": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a"
         }
       ]
     }

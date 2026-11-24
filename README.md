@@ -36,7 +36,8 @@ scripts/                validate, verify-onchain, incidents, sync
     { "chainId": 1, "address": "0x...checksummed", "label": "Pool", "sourceId": "aave-address-book-ethereum",
       "proxy": { "implementation": "0x...", "admin": "0x..." },   // EIP-1967; admin omitted if not in the admin slot
       "functions": [{ "selector": "0x617ba037", "signature": "supply(address,uint256,address,uint16)", "label": "Supply" }],
-      "onchainChecks": [{ "signature": "getPool()", "returns": "0x..." }] }   // registry cross-checks
+      "onchainChecks": [{ "signature": "getPool()", "returns": "0x..." }] }   // registry cross-checks; optional args, target, outputs, outputIndex
+      // "selectorCheck": {"implementation": "implementation()"} or {"facet": "selectorToFacet(bytes4)"}: where selectors really execute
   ],
   "incidents": [{ "date": "2026-03-12", "title": "...", "url": "https://...", "source": "defillama" }] // defillama | rekt | onchain
 }
@@ -47,7 +48,8 @@ Rules for entries:
 - Every address comes from the pinned source file, never from memory. Repo sources are pinned to a commit SHA and name the file.
 - `functions` lists user-facing actions only (supply, withdraw, deposit, swap). Never `approve`, `permit`, transfers or other operator calls; validate rejects them.
 - A contract that is a proxy has a `proxy` record; `verify-onchain --write` fills it from the EIP-1967 slots.
-- Where the protocol has its own on-chain registry, add `onchainChecks` so the address is confirmed by a read.
+- Where the protocol has its own on-chain registry, add `onchainChecks` so the address is confirmed by a read. Checks may take typed `args` (a bytes32 can be `{"ascii": "KEY"}` or `{"keccak": "text"}`) and call another contract with `target`.
+- Selectors are checked in the bytecode that runs them: the contract, its EIP-1967 implementation, or where `selectorCheck` points (Aragon proxies, facet routers).
 - Adding a protocol: write the file, run `npm run verify -- --write` (needs RPC env), then `npm run validate`.
 
 ## Scripts

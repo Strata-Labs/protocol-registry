@@ -78,16 +78,40 @@
             }
           },
           "onchainChecks": {
-            "description": "Zero-argument address getters that must return the given address (registry cross-checks).",
+            "description": "Registry cross-checks: call a view and require the address it returns. target defaults to the contract itself.",
             "type": "array",
             "items": {
               "type": "object",
               "additionalProperties": false,
               "required": ["signature", "returns"],
               "properties": {
-                "signature": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(\\)$" },
+                "signature": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\([A-Za-z0-9_,\\[\\]]*\\)$" },
+                "args": {
+                  "description": "One per parameter. Numbers and bools as such, addresses and bytes as hex strings; a bytes32 may be {\"ascii\": text} (right-padded) or {\"keccak\": text}.",
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      { "type": "string" }, { "type": "number" }, { "type": "boolean" },
+                      { "type": "object", "additionalProperties": false, "minProperties": 1, "maxProperties": 1, "properties": { "ascii": { "type": "string" }, "keccak": { "type": "string" } } }
+                    ]
+                  }
+                },
+                "target": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" },
+                "outputs": { "description": "The ABI return list when it is not a single address, e.g. ((address,string,uint256,uint256)) for one tuple.", "type": "string" },
+                "outputIndex": { "description": "Which returned value (or tuple member) holds the address.", "type": "integer", "minimum": 0 },
                 "returns": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" }
               }
+            }
+          },
+          "selectorCheck": {
+            "description": "Where the selectors in functions actually execute, when not the address itself or its EIP-1967 implementation.",
+            "type": "object",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "maxProperties": 1,
+            "properties": {
+              "implementation": { "description": "Zero-argument getter returning the implementation (Aragon proxies).", "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(\\)$" },
+              "facet": { "description": "Getter taking a bytes4 selector and returning the facet that serves it.", "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(bytes4\\)$" }
             }
           }
         }

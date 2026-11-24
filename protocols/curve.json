@@ -28,7 +28,7 @@
       "id": "curve-address-provider-id2",
       "kind": "onchain",
       "url": "https://etherscan.io/address/0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98#readContract",
-      "description": "AddressProvider.get_id_info(2) 'Exchange Router' returned the Ethereum v1.1 router (0x16C6...5353) and the Base router (0x4f37...fc1F) at seed time; checked by hand, verify-onchain cannot pass an argument"
+      "description": "AddressProvider.get_id_info(2) 'Exchange Router' must return the Ethereum v1.1 router and the Base router; verify-onchain runs the lookup on each chain on every run"
     }
   ],
   "contracts": [
@@ -52,6 +52,18 @@
           "selector": "0xc872a3c5",
           "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
           "label": "Swap via route (with pools and receiver)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "get_id_info(uint256)",
+          "args": [
+            2
+          ],
+          "target": "0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98",
+          "outputs": "((address,string,uint256,uint256))",
+          "outputIndex": 0,
+          "returns": "0x16C6521Dff6baB339122a0FE25a9116693265353"
         }
       ]
     },
@@ -98,6 +110,18 @@
           "selector": "0xc872a3c5",
           "signature": "exchange(address[11],uint256[5][5],uint256,uint256,address[5],address)",
           "label": "Swap via route (with pools and receiver)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "get_id_info(uint256)",
+          "args": [
+            2
+          ],
+          "target": "0x5ffe7FB82894076ECB99A30D6A32e969e6e35E98",
+          "outputs": "((address,string,uint256,uint256))",
+          "outputIndex": 0,
+          "returns": "0x4f37A9d177470499A2dD084621020b023fcffc1F"
         }
       ]
     }
