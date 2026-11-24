@@ -1,0 +1,586 @@
+{
+  "slug": "compound-v3",
+  "name": "Compound V3",
+  "aliases": [
+    "compound",
+    "comet",
+    "compound finance"
+  ],
+  "category": "lending",
+  "defillamaIds": [
+    "2088",
+    "parent#compound-finance"
+  ],
+  "website": "https://compound.finance",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "comet-mainnet-usdc",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdc/roots.json",
+      "description": "Comet deployment roots, mainnet USDC market"
+    },
+    {
+      "id": "comet-mainnet-usds",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usds/roots.json",
+      "description": "Comet deployment roots, mainnet USDS market"
+    },
+    {
+      "id": "comet-mainnet-usdt",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdt/roots.json",
+      "description": "Comet deployment roots, mainnet USDT market"
+    },
+    {
+      "id": "comet-mainnet-wbtc",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/wbtc/roots.json",
+      "description": "Comet deployment roots, mainnet WBTC market"
+    },
+    {
+      "id": "comet-mainnet-weth",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/weth/roots.json",
+      "description": "Comet deployment roots, mainnet WETH market"
+    },
+    {
+      "id": "comet-mainnet-wsteth",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/wsteth/roots.json",
+      "description": "Comet deployment roots, mainnet WSTETH market"
+    },
+    {
+      "id": "comet-base-aero",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/aero/roots.json",
+      "description": "Comet deployment roots, base AERO market"
+    },
+    {
+      "id": "comet-base-usdbc",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usdbc/roots.json",
+      "description": "Comet deployment roots, base USDBC market"
+    },
+    {
+      "id": "comet-base-usdc",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usdc/roots.json",
+      "description": "Comet deployment roots, base USDC market"
+    },
+    {
+      "id": "comet-base-usds",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usds/roots.json",
+      "description": "Comet deployment roots, base USDS market"
+    },
+    {
+      "id": "comet-base-weth",
+      "kind": "repo",
+      "url": "https://github.com/compound-finance/comet/blob/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/weth/roots.json",
+      "description": "Comet deployment roots, base WETH market"
+    },
+    {
+      "id": "onchain-compound-configurator",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x316f9708bB98af7dA9c68C1C3b5e79039cD336E3#readProxyContract",
+      "description": "Configurator.getConfiguration(comet) returned the same base token as each Comet when these were added (read by hand on Ethereum and Base, since the lookup takes an argument); verify-onchain checks each Comet baseToken() against the repo configuration.json"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+      "label": "Comet USDC (cUSDCv3)",
+      "sourceId": "comet-mainnet-usdc",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x0B07565A8ef48170e15918b251EbD95109B23255",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+      "label": "CometRewards",
+      "sourceId": "comet-mainnet-usdc",
+      "functions": [
+        {
+          "selector": "0xb7034f7e",
+          "signature": "claim(address,address,bool)",
+          "label": "Claim rewards"
+        },
+        {
+          "selector": "0x4ff85d94",
+          "signature": "claimTo(address,address,address,bool)",
+          "label": "Claim rewards to"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xa397a8C2086C554B531c02E29f3291c9704B00c7",
+      "label": "Bulker",
+      "sourceId": "comet-mainnet-usdc",
+      "functions": [
+        {
+          "selector": "0x555029a6",
+          "signature": "invoke(bytes32[],bytes[])",
+          "label": "Bulk actions (ETH/wstETH wrapping)"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x5D409e56D886231aDAf00c8775665AD0f9897b56",
+      "label": "Comet USDS (cUSDSv3)",
+      "sourceId": "comet-mainnet-usds",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x9f12A1E87987941Daa709297317fC33052Fe1830",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3Afdc9BCA9213A35503b077a6072F3D0d5AB0840",
+      "label": "Comet USDT (cUSDTv3)",
+      "sourceId": "comet-mainnet-usdt",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xd8E843ABa728b375Acc45E47d08F1879bF7B80B9",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe85Dc543813B8c2CFEaAc371517b925a166a9293",
+      "label": "Comet WBTC (cWBTCv3)",
+      "sourceId": "comet-mainnet-wbtc",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xB7f86b94E5C302E66FaFD5b61B909A9ddd573ed6",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xA17581A9E3356d9A858b789D68B4d866e593aE94",
+      "label": "Comet WETH (cWETHv3)",
+      "sourceId": "comet-mainnet-weth",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x2a0c96f742DBe81BAb9B13628f7F070fF1a5C8f9",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3D0bb1ccaB520A66e607822fC55BC921738fAFE3",
+      "label": "Comet WSTETH (cWstETHv3)",
+      "sourceId": "comet-mainnet-wsteth",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x4881f67B54944f0f6ce11409C0A911d4fE6A23f9",
+        "admin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x2c776041CCFe903071AF44aa147368a9c8EEA518",
+      "label": "Bulker",
+      "sourceId": "comet-mainnet-wsteth",
+      "functions": [
+        {
+          "selector": "0x555029a6",
+          "signature": "invoke(bytes32[],bytes[])",
+          "label": "Bulk actions (ETH/wstETH wrapping)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x784efeB622244d2348d4F2522f8860B96fbEcE89",
+      "label": "Comet AERO (cAEROv3)",
+      "sourceId": "comet-base-aero",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x32c42397bC4B9E37061Fb1C7A8B6B55074Fe1ea0",
+        "admin": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x123964802e6ABabBE1Bc9547D72Ef1B69B00A6b1",
+      "label": "CometRewards",
+      "sourceId": "comet-base-aero",
+      "functions": [
+        {
+          "selector": "0xb7034f7e",
+          "signature": "claim(address,address,bool)",
+          "label": "Claim rewards"
+        },
+        {
+          "selector": "0x4ff85d94",
+          "signature": "claimTo(address,address,address,bool)",
+          "label": "Claim rewards to"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x78D0677032A35c63D142a48A2037048871212a8C",
+      "label": "Bulker",
+      "sourceId": "comet-base-aero",
+      "functions": [
+        {
+          "selector": "0x555029a6",
+          "signature": "invoke(bytes32[],bytes[])",
+          "label": "Bulk actions (ETH/wstETH wrapping)"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+      "label": "Comet USDBC (cUSDbCv3)",
+      "sourceId": "comet-base-usdbc",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x3a82A35fe68D975F8eDB5E8DfFA60B13FbB4e040",
+        "admin": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb125E6687d4313864e53df431d5425969c15Eb2F",
+      "label": "Comet USDC (cUSDCv3)",
+      "sourceId": "comet-base-usdc",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xB6ef22A5d7C3214C767b39213556e11E46fF8f3e",
+        "admin": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x2c776041CCFe903071AF44aa147368a9c8EEA518",
+      "label": "Comet USDS (cUSDSv3)",
+      "sourceId": "comet-base-usds",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x820C137fa70C8691f0e44Dc420a5e53c168921Dc"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x8AC1747bE2B6c7534f1a1fd086306a80996C0F0c",
+        "admin": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x46e6b214b524310239732D51387075E0e70970bf",
+      "label": "Comet WETH (cWETHv3)",
+      "sourceId": "comet-base-weth",
+      "functions": [
+        {
+          "selector": "0xf2b9fdb8",
+          "signature": "supply(address,uint256)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x4232cd63",
+          "signature": "supplyTo(address,address,uint256)",
+          "label": "Supply to"
+        },
+        {
+          "selector": "0xf3fef3a3",
+          "signature": "withdraw(address,uint256)",
+          "label": "Withdraw / borrow"
+        },
+        {
+          "selector": "0xc3b35a7e",
+          "signature": "withdrawTo(address,address,uint256)",
+          "label": "Withdraw / borrow to"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "baseToken()",
+          "returns": "0x4200000000000000000000000000000000000006"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x0d517F7759FD3F083E8B807936e9700B4E1374C2",
+        "admin": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d"
+      }
+    }
+  ],
+  "incidents": []
+}
