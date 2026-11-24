@@ -1,0 +1,103 @@
+{
+  "slug": "eigenlayer",
+  "name": "EigenLayer",
+  "aliases": [
+    "eigenlayer",
+    "eigencloud",
+    "eigen layer"
+  ],
+  "category": "staking",
+  "defillamaIds": [
+    "3107"
+  ],
+  "website": "https://eigenlayer.xyz",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "eigenlayer-contracts-readme",
+      "kind": "repo",
+      "url": "https://github.com/Layr-Labs/eigenlayer-contracts/blob/29b57bf1010366d840b55213634efe72f66b6358/README.md",
+      "description": "EigenLayer contracts repo README, mainnet deployed contracts table (Ethereum)"
+    },
+    {
+      "id": "onchain-eigenlayer-links",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x858646372CC42E1A627fcE94aa7A7033e7CF075A#readProxyContract",
+      "description": "StrategyManager.delegation() must return the DelegationManager and DelegationManager.strategyManager() the StrategyManager; verify-onchain checks both on every run"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A",
+      "label": "StrategyManager",
+      "sourceId": "eigenlayer-contracts-readme",
+      "functions": [
+        {
+          "selector": "0xe7a050aa",
+          "signature": "depositIntoStrategy(address,address,uint256)",
+          "label": "Deposit into strategy"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "delegation()",
+          "returns": "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xa7536C85898dC424c6BFe8592F983661f830656A",
+        "admin": "0x8b9566AdA63B64d1E1dcF1418b43fd1433b72444"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A",
+      "label": "DelegationManager",
+      "sourceId": "eigenlayer-contracts-readme",
+      "functions": [
+        {
+          "selector": "0xeea9064b",
+          "signature": "delegateTo(address,(bytes,uint256),bytes32)",
+          "label": "Delegate to operator"
+        },
+        {
+          "selector": "0xda8be864",
+          "signature": "undelegate(address)",
+          "label": "Undelegate"
+        },
+        {
+          "selector": "0xa33a3433",
+          "signature": "redelegate(address,(bytes,uint256),bytes32)",
+          "label": "Redelegate"
+        },
+        {
+          "selector": "0x0dd8dd02",
+          "signature": "queueWithdrawals((address[],uint256[],address)[])",
+          "label": "Queue withdrawals"
+        },
+        {
+          "selector": "0xe4cc3f90",
+          "signature": "completeQueuedWithdrawal((address,address,address,uint256,uint32,address[],uint256[]),address[],bool)",
+          "label": "Complete withdrawal"
+        },
+        {
+          "selector": "0x9435bb43",
+          "signature": "completeQueuedWithdrawals((address,address,address,uint256,uint32,address[],uint256[])[],address[][],bool[])",
+          "label": "Complete withdrawals"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "strategyManager()",
+          "returns": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x6a8BEd4062C895130E2d09bA442D3eCEAd5Df6c2",
+        "admin": "0x8b9566AdA63B64d1E1dcF1418b43fd1433b72444"
+      }
+    }
+  ],
+  "incidents": []
+}

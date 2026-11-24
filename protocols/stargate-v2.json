@@ -1,0 +1,262 @@
+{
+  "slug": "stargate-v2",
+  "name": "LayerZero / Stargate V2",
+  "aliases": [
+    "stargate",
+    "layerzero",
+    "usdt0"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "4831",
+    "parent#stargate-finance",
+    "4867",
+    "5901"
+  ],
+  "website": "https://stargate.finance",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "stargate-ethereum-native",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolNative.json",
+      "description": "Stargate V2 StargatePoolNative deployment, ethereum"
+    },
+    {
+      "id": "stargate-ethereum-usdc",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolUSDC.json",
+      "description": "Stargate V2 StargatePoolUSDC deployment, ethereum"
+    },
+    {
+      "id": "stargate-ethereum-usdt",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolUSDT.json",
+      "description": "Stargate V2 StargatePoolUSDT deployment, ethereum"
+    },
+    {
+      "id": "stargate-ethereum-eurc",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolEURC.json",
+      "description": "Stargate V2 StargatePoolEURC deployment, ethereum"
+    },
+    {
+      "id": "stargate-ethereum-metis",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolMETIS.json",
+      "description": "Stargate V2 StargatePoolMETIS deployment, ethereum"
+    },
+    {
+      "id": "stargate-ethereum-meth",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolmETH.json",
+      "description": "Stargate V2 StargatePoolmETH deployment, ethereum"
+    },
+    {
+      "id": "stargate-base-native",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/base-mainnet/StargatePoolNative.json",
+      "description": "Stargate V2 StargatePoolNative deployment, base"
+    },
+    {
+      "id": "stargate-base-usdc",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/base-mainnet/StargatePoolUSDC.json",
+      "description": "Stargate V2 StargatePoolUSDC deployment, base"
+    },
+    {
+      "id": "stargate-base-eurc",
+      "kind": "repo",
+      "url": "https://github.com/stargate-protocol/stargate-v2/blob/348621c5430064e8d79445b8c1b8136fe3fbd967/packages/stg-evm-v2/deployments/base-mainnet/StargatePoolEURC.json",
+      "description": "Stargate V2 StargatePoolEURC deployment, base"
+    },
+    {
+      "id": "usdt0-docs-deployments",
+      "kind": "docs",
+      "url": "https://docs.usdt0.to/technical-documentation/deployments",
+      "description": "USDT0 deployments (docs page, no repo backing)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x77b2043768d28E9C9aB44E1aBfC95944bcE57931",
+      "label": "StargatePoolNative (ethereum)",
+      "sourceId": "stargate-ethereum-native",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xc026395860Db2d07ee33e05fE50ed7bD583189C7",
+      "label": "StargatePoolUSDC (ethereum)",
+      "sourceId": "stargate-ethereum-usdc",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x933597a323Eb81cAe705C5bC29985172fd5A3973",
+      "label": "StargatePoolUSDT (ethereum)",
+      "sourceId": "stargate-ethereum-usdt",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x783129E4d7bA0Af0C896c239E57C06DF379aAE8c",
+      "label": "StargatePoolEURC (ethereum)",
+      "sourceId": "stargate-ethereum-eurc",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xcDafB1b2dB43f366E48e6F614b8DCCBFeeFEEcD3",
+      "label": "StargatePoolMETIS (ethereum)",
+      "sourceId": "stargate-ethereum-metis",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x268Ca24DAefF1FaC2ed883c598200CcbB79E931D",
+      "label": "StargatePoolmETH (ethereum)",
+      "sourceId": "stargate-ethereum-meth",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+      "label": "StargatePoolNative (base)",
+      "sourceId": "stargate-base-native",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x27a16dc786820B16E5c9028b75B99F6f604b5d26",
+      "label": "StargatePoolUSDC (base)",
+      "sourceId": "stargate-base-usdc",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x87Dd5A7481726a53C5Ac6b0D296F5846f95a72f2",
+      "label": "StargatePoolEURC (base)",
+      "sourceId": "stargate-base-eurc",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge (taxi or bus via oftCmd)"
+        },
+        {
+          "selector": "0xcbef2aa9",
+          "signature": "sendToken((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge, returns ticket"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee",
+      "label": "USDT0 OFT Adapter",
+      "sourceId": "usdt0-docs-deployments",
+      "functions": [
+        {
+          "selector": "0xc7c7f5b3",
+          "signature": "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)",
+          "label": "Bridge USDT0"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+        "admin": "0x4de7096B2131E84Fd6b2042AD8cd9B4E43F728Fc"
+      }
+    }
+  ],
+  "incidents": []
+}

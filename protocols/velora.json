@@ -1,0 +1,214 @@
+{
+  "slug": "velora",
+  "name": "Velora",
+  "aliases": [
+    "velora",
+    "paraswap"
+  ],
+  "category": "aggregator",
+  "defillamaIds": [
+    "894"
+  ],
+  "website": "https://velora.xyz",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "velora-docs-contracts",
+      "kind": "repo",
+      "url": "https://github.com/VeloraDEX/docs/blob/1bed0fde553fe226795e761d4264930b7d3f98a0/resources/contracts.json",
+      "description": "Velora (formerly ParaSwap) per-chain contract addresses, documentation repo"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x6A000F20005980200259B80c5102003040001068",
+      "label": "Augustus v6.2",
+      "sourceId": "velora-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe3ead59e",
+          "signature": "swapExactAmountIn(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact in"
+        },
+        {
+          "selector": "0x7f457675",
+          "signature": "swapExactAmountOut(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact out"
+        },
+        {
+          "selector": "0xe8bb3b6c",
+          "signature": "swapExactAmountInOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V2 forks"
+        },
+        {
+          "selector": "0xa76f4eb6",
+          "signature": "swapExactAmountOutOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V2 forks"
+        },
+        {
+          "selector": "0x876a02f6",
+          "signature": "swapExactAmountInOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V3 forks"
+        },
+        {
+          "selector": "0x5e94e28d",
+          "signature": "swapExactAmountOutOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V3 forks"
+        },
+        {
+          "selector": "0xd85ca173",
+          "signature": "swapExactAmountInOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact in on Balancer V2"
+        },
+        {
+          "selector": "0xd6ed22e6",
+          "signature": "swapExactAmountOutOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact out on Balancer V2"
+        },
+        {
+          "selector": "0x1a01c532",
+          "signature": "swapExactAmountInOnCurveV1((uint256,uint256,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V1"
+        },
+        {
+          "selector": "0xe37ed256",
+          "signature": "swapExactAmountInOnCurveV2((uint256,uint256,uint256,address,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V2"
+        },
+        {
+          "selector": "0xda35bb0d",
+          "signature": "swapOnAugustusRFQTryBatchFill((uint256,uint256,uint8,bytes32,address),((uint256,uint128,address,address,address,address,uint256,uint256),bytes,uint256,bytes,bytes)[],bytes)",
+          "label": "Swap via RFQ orders"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x6A000F20005980200259B80c5102003040001068",
+      "label": "Augustus v6.2",
+      "sourceId": "velora-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe3ead59e",
+          "signature": "swapExactAmountIn(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact in"
+        },
+        {
+          "selector": "0x7f457675",
+          "signature": "swapExactAmountOut(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact out"
+        },
+        {
+          "selector": "0xe8bb3b6c",
+          "signature": "swapExactAmountInOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V2 forks"
+        },
+        {
+          "selector": "0xa76f4eb6",
+          "signature": "swapExactAmountOutOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V2 forks"
+        },
+        {
+          "selector": "0x876a02f6",
+          "signature": "swapExactAmountInOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V3 forks"
+        },
+        {
+          "selector": "0x5e94e28d",
+          "signature": "swapExactAmountOutOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V3 forks"
+        },
+        {
+          "selector": "0xd85ca173",
+          "signature": "swapExactAmountInOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact in on Balancer V2"
+        },
+        {
+          "selector": "0xd6ed22e6",
+          "signature": "swapExactAmountOutOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact out on Balancer V2"
+        },
+        {
+          "selector": "0x1a01c532",
+          "signature": "swapExactAmountInOnCurveV1((uint256,uint256,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V1"
+        },
+        {
+          "selector": "0xe37ed256",
+          "signature": "swapExactAmountInOnCurveV2((uint256,uint256,uint256,address,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V2"
+        },
+        {
+          "selector": "0xda35bb0d",
+          "signature": "swapOnAugustusRFQTryBatchFill((uint256,uint256,uint8,bytes32,address),((uint256,uint128,address,address,address,address,uint256,uint256),bytes,uint256,bytes,bytes)[],bytes)",
+          "label": "Swap via RFQ orders"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6A000F20005980200259B80c5102003040001068",
+      "label": "Augustus v6.2",
+      "sourceId": "velora-docs-contracts",
+      "functions": [
+        {
+          "selector": "0xe3ead59e",
+          "signature": "swapExactAmountIn(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact in"
+        },
+        {
+          "selector": "0x7f457675",
+          "signature": "swapExactAmountOut(address,(address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes,bytes)",
+          "label": "Swap exact out"
+        },
+        {
+          "selector": "0xe8bb3b6c",
+          "signature": "swapExactAmountInOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V2 forks"
+        },
+        {
+          "selector": "0xa76f4eb6",
+          "signature": "swapExactAmountOutOnUniswapV2((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V2 forks"
+        },
+        {
+          "selector": "0x876a02f6",
+          "signature": "swapExactAmountInOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact in on Uniswap V3 forks"
+        },
+        {
+          "selector": "0x5e94e28d",
+          "signature": "swapExactAmountOutOnUniswapV3((address,address,uint256,uint256,uint256,bytes32,address,bytes),uint256,bytes)",
+          "label": "Swap exact out on Uniswap V3 forks"
+        },
+        {
+          "selector": "0xd85ca173",
+          "signature": "swapExactAmountInOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact in on Balancer V2"
+        },
+        {
+          "selector": "0xd6ed22e6",
+          "signature": "swapExactAmountOutOnBalancerV2((uint256,uint256,uint256,bytes32,uint256),uint256,bytes,bytes)",
+          "label": "Swap exact out on Balancer V2"
+        },
+        {
+          "selector": "0x1a01c532",
+          "signature": "swapExactAmountInOnCurveV1((uint256,uint256,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V1"
+        },
+        {
+          "selector": "0xe37ed256",
+          "signature": "swapExactAmountInOnCurveV2((uint256,uint256,uint256,address,address,address,uint256,uint256,uint256,bytes32,address),uint256,bytes)",
+          "label": "Swap exact in on Curve V2"
+        },
+        {
+          "selector": "0xda35bb0d",
+          "signature": "swapOnAugustusRFQTryBatchFill((uint256,uint256,uint8,bytes32,address),((uint256,uint128,address,address,address,address,uint256,uint256),bytes,uint256,bytes,bytes)[],bytes)",
+          "label": "Swap via RFQ orders"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

@@ -1,0 +1,280 @@
+{
+  "slug": "1inch",
+  "name": "1inch",
+  "aliases": [
+    "1inch"
+  ],
+  "category": "aggregator",
+  "defillamaIds": [
+    "parent#1inch",
+    "189"
+  ],
+  "website": "https://1inch.io",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "1inch-limit-order-protocol-readme",
+      "kind": "repo",
+      "url": "https://github.com/1inch/limit-order-protocol/blob/50bd1300315606a3d32e9021898374c9d0dc2335/README.md",
+      "description": "1inch Router v6 deployments (shared address with Limit Order Protocol v4)"
+    },
+    {
+      "id": "1inch-limit-order-sdk-constants",
+      "kind": "repo",
+      "url": "https://github.com/1inch/limit-order-sdk/blob/d4bab2e4056c2d750f0e3d750c4da5bdb87e5647/src/constants.ts",
+      "description": "1inch Limit Order SDK constants: Router v6 / Limit Order Protocol v4 address per chain, incl. Robinhood Chain (README lists no Robinhood)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "label": "AggregationRouterV6",
+      "sourceId": "1inch-limit-order-protocol-readme",
+      "functions": [
+        {
+          "selector": "0x07ed2379",
+          "signature": "swap(address,(address,address,address,address,uint256,uint256,uint256),bytes)",
+          "label": "Swap via executor"
+        },
+        {
+          "selector": "0x83800a8e",
+          "signature": "unoswap(uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool"
+        },
+        {
+          "selector": "0x8770ba91",
+          "signature": "unoswap2(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools"
+        },
+        {
+          "selector": "0x19367472",
+          "signature": "unoswap3(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools"
+        },
+        {
+          "selector": "0xe2c95c82",
+          "signature": "unoswapTo(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool, to recipient"
+        },
+        {
+          "selector": "0xea76dddf",
+          "signature": "unoswapTo2(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools, to recipient"
+        },
+        {
+          "selector": "0xf7a70056",
+          "signature": "unoswapTo3(uint256,uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools, to recipient"
+        },
+        {
+          "selector": "0xa76dfc3b",
+          "signature": "ethUnoswap(uint256,uint256)",
+          "label": "Swap ETH on one pool"
+        },
+        {
+          "selector": "0x89af926a",
+          "signature": "ethUnoswap2(uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools"
+        },
+        {
+          "selector": "0x188ac35d",
+          "signature": "ethUnoswap3(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools"
+        },
+        {
+          "selector": "0x175accdc",
+          "signature": "ethUnoswapTo(uint256,uint256,uint256)",
+          "label": "Swap ETH on one pool, to recipient"
+        },
+        {
+          "selector": "0x0f449d71",
+          "signature": "ethUnoswapTo2(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools, to recipient"
+        },
+        {
+          "selector": "0x493189f0",
+          "signature": "ethUnoswapTo3(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools, to recipient"
+        },
+        {
+          "selector": "0xd2d374e5",
+          "signature": "clipperSwap(address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper"
+        },
+        {
+          "selector": "0xc4d652af",
+          "signature": "clipperSwapTo(address,address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper, to recipient"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "label": "AggregationRouterV6",
+      "sourceId": "1inch-limit-order-protocol-readme",
+      "functions": [
+        {
+          "selector": "0x07ed2379",
+          "signature": "swap(address,(address,address,address,address,uint256,uint256,uint256),bytes)",
+          "label": "Swap via executor"
+        },
+        {
+          "selector": "0x83800a8e",
+          "signature": "unoswap(uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool"
+        },
+        {
+          "selector": "0x8770ba91",
+          "signature": "unoswap2(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools"
+        },
+        {
+          "selector": "0x19367472",
+          "signature": "unoswap3(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools"
+        },
+        {
+          "selector": "0xe2c95c82",
+          "signature": "unoswapTo(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool, to recipient"
+        },
+        {
+          "selector": "0xea76dddf",
+          "signature": "unoswapTo2(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools, to recipient"
+        },
+        {
+          "selector": "0xf7a70056",
+          "signature": "unoswapTo3(uint256,uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools, to recipient"
+        },
+        {
+          "selector": "0xa76dfc3b",
+          "signature": "ethUnoswap(uint256,uint256)",
+          "label": "Swap ETH on one pool"
+        },
+        {
+          "selector": "0x89af926a",
+          "signature": "ethUnoswap2(uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools"
+        },
+        {
+          "selector": "0x188ac35d",
+          "signature": "ethUnoswap3(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools"
+        },
+        {
+          "selector": "0x175accdc",
+          "signature": "ethUnoswapTo(uint256,uint256,uint256)",
+          "label": "Swap ETH on one pool, to recipient"
+        },
+        {
+          "selector": "0x0f449d71",
+          "signature": "ethUnoswapTo2(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools, to recipient"
+        },
+        {
+          "selector": "0x493189f0",
+          "signature": "ethUnoswapTo3(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools, to recipient"
+        },
+        {
+          "selector": "0xd2d374e5",
+          "signature": "clipperSwap(address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper"
+        },
+        {
+          "selector": "0xc4d652af",
+          "signature": "clipperSwapTo(address,address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper, to recipient"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5A705DE8982235a7fa45bB83dCaCf03a211389C7",
+      "label": "AggregationRouterV6",
+      "sourceId": "1inch-limit-order-sdk-constants",
+      "functions": [
+        {
+          "selector": "0x07ed2379",
+          "signature": "swap(address,(address,address,address,address,uint256,uint256,uint256),bytes)",
+          "label": "Swap via executor"
+        },
+        {
+          "selector": "0x83800a8e",
+          "signature": "unoswap(uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool"
+        },
+        {
+          "selector": "0x8770ba91",
+          "signature": "unoswap2(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools"
+        },
+        {
+          "selector": "0x19367472",
+          "signature": "unoswap3(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools"
+        },
+        {
+          "selector": "0xe2c95c82",
+          "signature": "unoswapTo(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on one pool, to recipient"
+        },
+        {
+          "selector": "0xea76dddf",
+          "signature": "unoswapTo2(uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on two pools, to recipient"
+        },
+        {
+          "selector": "0xf7a70056",
+          "signature": "unoswapTo3(uint256,uint256,uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap on three pools, to recipient"
+        },
+        {
+          "selector": "0xa76dfc3b",
+          "signature": "ethUnoswap(uint256,uint256)",
+          "label": "Swap ETH on one pool"
+        },
+        {
+          "selector": "0x89af926a",
+          "signature": "ethUnoswap2(uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools"
+        },
+        {
+          "selector": "0x188ac35d",
+          "signature": "ethUnoswap3(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools"
+        },
+        {
+          "selector": "0x175accdc",
+          "signature": "ethUnoswapTo(uint256,uint256,uint256)",
+          "label": "Swap ETH on one pool, to recipient"
+        },
+        {
+          "selector": "0x0f449d71",
+          "signature": "ethUnoswapTo2(uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on two pools, to recipient"
+        },
+        {
+          "selector": "0x493189f0",
+          "signature": "ethUnoswapTo3(uint256,uint256,uint256,uint256,uint256)",
+          "label": "Swap ETH on three pools, to recipient"
+        },
+        {
+          "selector": "0xd2d374e5",
+          "signature": "clipperSwap(address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper"
+        },
+        {
+          "selector": "0xc4d652af",
+          "signature": "clipperSwapTo(address,address,uint256,address,uint256,uint256,uint256,bytes32,bytes32)",
+          "label": "Swap on Clipper, to recipient"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

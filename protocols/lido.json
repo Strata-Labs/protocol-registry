@@ -1,0 +1,131 @@
+{
+  "slug": "lido",
+  "name": "Lido",
+  "aliases": [
+    "lido finance",
+    "steth",
+    "wsteth"
+  ],
+  "category": "staking",
+  "defillamaIds": [
+    "182"
+  ],
+  "website": "https://lido.fi",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "lido-docs-deployed-contracts",
+      "kind": "repo",
+      "url": "https://github.com/lidofinance/docs/blob/5e7d7806f3679c4bd1832c855facffea97f27975/docs/deployed-contracts/index.md",
+      "description": "Lido docs repo, deployed contracts (Ethereum mainnet)"
+    },
+    {
+      "id": "onchain-lido-locator",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb#readProxyContract",
+      "description": "LidoLocator.lido() and withdrawalQueue() must return stETH and the withdrawal queue; the queue's STETH() and WSTETH() must return stETH and wstETH; verify-onchain checks all four on every run"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb",
+      "label": "LidoLocator",
+      "sourceId": "lido-docs-deployed-contracts",
+      "functions": [],
+      "onchainChecks": [
+        {
+          "signature": "lido()",
+          "returns": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        },
+        {
+          "signature": "withdrawalQueue()",
+          "returns": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x60E09F1791F1168d0450E4F100616B4a3F95119C",
+        "admin": "0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+      "label": "stETH (Lido)",
+      "sourceId": "lido-docs-deployed-contracts",
+      "functions": [
+        {
+          "selector": "0xa1903eab",
+          "signature": "submit(address)",
+          "label": "Stake ETH for stETH"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "label": "wstETH",
+      "sourceId": "lido-docs-deployed-contracts",
+      "functions": [
+        {
+          "selector": "0xea598cb0",
+          "signature": "wrap(uint256)",
+          "label": "Wrap stETH"
+        },
+        {
+          "selector": "0xde0e9a3e",
+          "signature": "unwrap(uint256)",
+          "label": "Unwrap wstETH"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "label": "WithdrawalQueueERC721",
+      "sourceId": "lido-docs-deployed-contracts",
+      "functions": [
+        {
+          "selector": "0xd6681042",
+          "signature": "requestWithdrawals(uint256[],address)",
+          "label": "Request withdrawal (stETH)"
+        },
+        {
+          "selector": "0x19aa6257",
+          "signature": "requestWithdrawalsWstETH(uint256[],address)",
+          "label": "Request withdrawal (wstETH)"
+        },
+        {
+          "selector": "0xf8444436",
+          "signature": "claimWithdrawal(uint256)",
+          "label": "Claim withdrawal"
+        },
+        {
+          "selector": "0xe3afe0a3",
+          "signature": "claimWithdrawals(uint256[],uint256[])",
+          "label": "Claim withdrawals"
+        },
+        {
+          "selector": "0x5e7eead9",
+          "signature": "claimWithdrawalsTo(uint256[],uint256[],address)",
+          "label": "Claim withdrawals to recipient"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "STETH()",
+          "returns": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        },
+        {
+          "signature": "WSTETH()",
+          "returns": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+        "admin": "0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c"
+      }
+    }
+  ],
+  "incidents": []
+}

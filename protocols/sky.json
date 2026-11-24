@@ -1,0 +1,132 @@
+{
+  "slug": "sky",
+  "name": "Sky",
+  "aliases": [
+    "sky protocol",
+    "sky money",
+    "makerdao",
+    "usds",
+    "susds"
+  ],
+  "category": "yield",
+  "defillamaIds": [
+    "parent#maker"
+  ],
+  "website": "https://sky.money",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "sky-chainlog-ui-mainnet",
+      "kind": "repo",
+      "url": "https://github.com/sky-ecosystem/chainlog-ui/blob/c1f2d68239be616179589ff4e197eea867a352cd/api/mainnet/active.json",
+      "description": "Sky chainlog snapshot (active mainnet addresses), kept by the chainlog-ui repo"
+    },
+    {
+      "id": "onchain-sky-chainlog",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F#readContract",
+      "description": "Chainlog.getAddress(SUSDS, DAI_USDS, MKR_SKY) returned these three addresses when they were added (read by hand, since the lookup takes a key); verify-onchain checks that each contract's token getters point at the expected tokens"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+      "label": "sUSDS",
+      "sourceId": "sky-chainlog-ui-mainnet",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit USDS"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit USDS (referral)"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw USDS"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem sUSDS"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "usds()",
+          "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A",
+      "label": "DaiUsds converter",
+      "sourceId": "sky-chainlog-ui-mainnet",
+      "functions": [
+        {
+          "selector": "0xf2c07aae",
+          "signature": "daiToUsds(address,uint256)",
+          "label": "Convert DAI to USDS"
+        },
+        {
+          "selector": "0x68f30150",
+          "signature": "usdsToDai(address,uint256)",
+          "label": "Convert USDS to DAI"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "dai()",
+          "returns": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+        },
+        {
+          "signature": "usds()",
+          "returns": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a",
+      "label": "MkrSky converter",
+      "sourceId": "sky-chainlog-ui-mainnet",
+      "functions": [
+        {
+          "selector": "0xab89605a",
+          "signature": "mkrToSky(address,uint256)",
+          "label": "Convert MKR to SKY"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "mkr()",
+          "returns": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2"
+        },
+        {
+          "signature": "sky()",
+          "returns": "0x56072C95FAA701256059aa122697B133aDEd9279"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

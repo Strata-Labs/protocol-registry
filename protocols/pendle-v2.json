@@ -1,0 +1,443 @@
+{
+  "slug": "pendle-v2",
+  "name": "Pendle V2",
+  "aliases": [
+    "pendle",
+    "pendle finance"
+  ],
+  "category": "yield",
+  "defillamaIds": [
+    "382",
+    "parent#pendle"
+  ],
+  "website": "https://pendle.finance",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "pendle-core-v2-ethereum",
+      "kind": "repo",
+      "url": "https://github.com/pendle-finance/pendle-core-v2-public/blob/82e69f0b2279c85f250a87cb0fe16a2b432ebb72/deployments/1-core.json",
+      "description": "Pendle V2 core deployments, Ethereum"
+    },
+    {
+      "id": "pendle-core-v2-base",
+      "kind": "repo",
+      "url": "https://github.com/pendle-finance/pendle-core-v2-public/blob/82e69f0b2279c85f250a87cb0fe16a2b432ebb72/deployments/8453-core.json",
+      "description": "Pendle V2 core deployments, Base"
+    },
+    {
+      "id": "pendle-core-v2-robinhood",
+      "kind": "repo",
+      "url": "https://github.com/pendle-finance/pendle-core-v2-public/blob/82e69f0b2279c85f250a87cb0fe16a2b432ebb72/deployments/4663-core.json",
+      "description": "Pendle V2 core deployments, Robinhood Chain"
+    },
+    {
+      "id": "onchain-pendle-router-facets",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x888888888889758F76e7103c6CbF23ABbF58F946#readProxyContract",
+      "description": "The Router dispatches to facets, so selectors are not in its bytecode; ActionStorageV4.selectorToFacet(selector) returned a non-zero facet for every listed selector on all three chains when they were added"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+      "label": "Pendle Router",
+      "sourceId": "pendle-core-v2-ethereum",
+      "functions": [
+        {
+          "selector": "0xed48907e",
+          "signature": "swapExactTokenForYt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for yt"
+        },
+        {
+          "selector": "0x7b8b4b95",
+          "signature": "swapExactSyForYt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for yt"
+        },
+        {
+          "selector": "0x05eb5327",
+          "signature": "swapExactYtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for token"
+        },
+        {
+          "selector": "0x80c4d566",
+          "signature": "swapExactYtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for sy"
+        },
+        {
+          "selector": "0x2e071dc6",
+          "signature": "mintSyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint sy from token"
+        },
+        {
+          "selector": "0x339a5572",
+          "signature": "redeemSyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem sy to token"
+        },
+        {
+          "selector": "0xd0f42385",
+          "signature": "mintPyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint py from token"
+        },
+        {
+          "selector": "0x47f1de22",
+          "signature": "redeemPyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem py to token"
+        },
+        {
+          "selector": "0x1a8631b2",
+          "signature": "mintPyFromSy(address,address,uint256,uint256)",
+          "label": "Mint py from sy"
+        },
+        {
+          "selector": "0x339748cb",
+          "signature": "redeemPyToSy(address,address,uint256,uint256)",
+          "label": "Redeem py to sy"
+        },
+        {
+          "selector": "0xf7e375e8",
+          "signature": "redeemDueInterestAndRewards(address,address[],address[],address[])",
+          "label": "Redeem due interest and rewards"
+        },
+        {
+          "selector": "0x7036e052",
+          "signature": "exitPreExpToToken(address,address,uint256,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Exit pre exp to token"
+        },
+        {
+          "selector": "0xf06a07a0",
+          "signature": "exitPostExpToToken(address,address,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Exit post exp to token"
+        },
+        {
+          "selector": "0x2756ce06",
+          "signature": "addLiquidityDualTokenAndPt(address,address,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256,uint256)",
+          "label": "Add liquidity dual token and pt"
+        },
+        {
+          "selector": "0x97ee279e",
+          "signature": "addLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Add liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x12599ac6",
+          "signature": "addLiquiditySingleToken(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single token"
+        },
+        {
+          "selector": "0x58bda475",
+          "signature": "addLiquiditySingleSy(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single sy"
+        },
+        {
+          "selector": "0xb00f09d7",
+          "signature": "removeLiquidityDualTokenAndPt(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256)",
+          "label": "Remove liquidity dual token and pt"
+        },
+        {
+          "selector": "0xb7d75b8b",
+          "signature": "removeLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Remove liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x60da0860",
+          "signature": "removeLiquiditySingleToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single token"
+        },
+        {
+          "selector": "0xd13b4fdc",
+          "signature": "removeLiquiditySingleSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single sy"
+        },
+        {
+          "selector": "0xc81f847a",
+          "signature": "swapExactTokenForPt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for pt"
+        },
+        {
+          "selector": "0x2a50917c",
+          "signature": "swapExactSyForPt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for pt"
+        },
+        {
+          "selector": "0x594a88cc",
+          "signature": "swapExactPtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for token"
+        },
+        {
+          "selector": "0x3346d3a3",
+          "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for sy"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+      "label": "Pendle Router",
+      "sourceId": "pendle-core-v2-base",
+      "functions": [
+        {
+          "selector": "0xed48907e",
+          "signature": "swapExactTokenForYt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for yt"
+        },
+        {
+          "selector": "0x7b8b4b95",
+          "signature": "swapExactSyForYt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for yt"
+        },
+        {
+          "selector": "0x05eb5327",
+          "signature": "swapExactYtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for token"
+        },
+        {
+          "selector": "0x80c4d566",
+          "signature": "swapExactYtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for sy"
+        },
+        {
+          "selector": "0x2e071dc6",
+          "signature": "mintSyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint sy from token"
+        },
+        {
+          "selector": "0x339a5572",
+          "signature": "redeemSyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem sy to token"
+        },
+        {
+          "selector": "0xd0f42385",
+          "signature": "mintPyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint py from token"
+        },
+        {
+          "selector": "0x47f1de22",
+          "signature": "redeemPyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem py to token"
+        },
+        {
+          "selector": "0x1a8631b2",
+          "signature": "mintPyFromSy(address,address,uint256,uint256)",
+          "label": "Mint py from sy"
+        },
+        {
+          "selector": "0x339748cb",
+          "signature": "redeemPyToSy(address,address,uint256,uint256)",
+          "label": "Redeem py to sy"
+        },
+        {
+          "selector": "0xf7e375e8",
+          "signature": "redeemDueInterestAndRewards(address,address[],address[],address[])",
+          "label": "Redeem due interest and rewards"
+        },
+        {
+          "selector": "0x7036e052",
+          "signature": "exitPreExpToToken(address,address,uint256,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Exit pre exp to token"
+        },
+        {
+          "selector": "0xf06a07a0",
+          "signature": "exitPostExpToToken(address,address,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Exit post exp to token"
+        },
+        {
+          "selector": "0x2756ce06",
+          "signature": "addLiquidityDualTokenAndPt(address,address,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256,uint256)",
+          "label": "Add liquidity dual token and pt"
+        },
+        {
+          "selector": "0x97ee279e",
+          "signature": "addLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Add liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x12599ac6",
+          "signature": "addLiquiditySingleToken(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single token"
+        },
+        {
+          "selector": "0x58bda475",
+          "signature": "addLiquiditySingleSy(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single sy"
+        },
+        {
+          "selector": "0xb00f09d7",
+          "signature": "removeLiquidityDualTokenAndPt(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256)",
+          "label": "Remove liquidity dual token and pt"
+        },
+        {
+          "selector": "0xb7d75b8b",
+          "signature": "removeLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Remove liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x60da0860",
+          "signature": "removeLiquiditySingleToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single token"
+        },
+        {
+          "selector": "0xd13b4fdc",
+          "signature": "removeLiquiditySingleSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single sy"
+        },
+        {
+          "selector": "0xc81f847a",
+          "signature": "swapExactTokenForPt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for pt"
+        },
+        {
+          "selector": "0x2a50917c",
+          "signature": "swapExactSyForPt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for pt"
+        },
+        {
+          "selector": "0x594a88cc",
+          "signature": "swapExactPtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for token"
+        },
+        {
+          "selector": "0x3346d3a3",
+          "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for sy"
+        }
+      ]
+    },
+    {
+      "chainId": 4663,
+      "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+      "label": "Pendle Router",
+      "sourceId": "pendle-core-v2-robinhood",
+      "functions": [
+        {
+          "selector": "0xed48907e",
+          "signature": "swapExactTokenForYt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for yt"
+        },
+        {
+          "selector": "0x7b8b4b95",
+          "signature": "swapExactSyForYt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for yt"
+        },
+        {
+          "selector": "0x05eb5327",
+          "signature": "swapExactYtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for token"
+        },
+        {
+          "selector": "0x80c4d566",
+          "signature": "swapExactYtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact yt for sy"
+        },
+        {
+          "selector": "0x2e071dc6",
+          "signature": "mintSyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint sy from token"
+        },
+        {
+          "selector": "0x339a5572",
+          "signature": "redeemSyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem sy to token"
+        },
+        {
+          "selector": "0xd0f42385",
+          "signature": "mintPyFromToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Mint py from token"
+        },
+        {
+          "selector": "0x47f1de22",
+          "signature": "redeemPyToToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Redeem py to token"
+        },
+        {
+          "selector": "0x1a8631b2",
+          "signature": "mintPyFromSy(address,address,uint256,uint256)",
+          "label": "Mint py from sy"
+        },
+        {
+          "selector": "0x339748cb",
+          "signature": "redeemPyToSy(address,address,uint256,uint256)",
+          "label": "Redeem py to sy"
+        },
+        {
+          "selector": "0xf7e375e8",
+          "signature": "redeemDueInterestAndRewards(address,address[],address[],address[])",
+          "label": "Redeem due interest and rewards"
+        },
+        {
+          "selector": "0x7036e052",
+          "signature": "exitPreExpToToken(address,address,uint256,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Exit pre exp to token"
+        },
+        {
+          "selector": "0xf06a07a0",
+          "signature": "exitPostExpToToken(address,address,uint256,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)))",
+          "label": "Exit post exp to token"
+        },
+        {
+          "selector": "0x2756ce06",
+          "signature": "addLiquidityDualTokenAndPt(address,address,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256,uint256)",
+          "label": "Add liquidity dual token and pt"
+        },
+        {
+          "selector": "0x97ee279e",
+          "signature": "addLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Add liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x12599ac6",
+          "signature": "addLiquiditySingleToken(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single token"
+        },
+        {
+          "selector": "0x58bda475",
+          "signature": "addLiquiditySingleSy(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Add liquidity single sy"
+        },
+        {
+          "selector": "0xb00f09d7",
+          "signature": "removeLiquidityDualTokenAndPt(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),uint256)",
+          "label": "Remove liquidity dual token and pt"
+        },
+        {
+          "selector": "0xb7d75b8b",
+          "signature": "removeLiquidityDualSyAndPt(address,address,uint256,uint256,uint256)",
+          "label": "Remove liquidity dual sy and pt"
+        },
+        {
+          "selector": "0x60da0860",
+          "signature": "removeLiquiditySingleToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single token"
+        },
+        {
+          "selector": "0xd13b4fdc",
+          "signature": "removeLiquiditySingleSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Remove liquidity single sy"
+        },
+        {
+          "selector": "0xc81f847a",
+          "signature": "swapExactTokenForPt(address,address,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact token for pt"
+        },
+        {
+          "selector": "0x2a50917c",
+          "signature": "swapExactSyForPt(address,address,uint256,uint256,(uint256,uint256,uint256,uint256,uint256),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact sy for pt"
+        },
+        {
+          "selector": "0x594a88cc",
+          "signature": "swapExactPtForToken(address,address,uint256,(address,uint256,address,address,(uint8,address,bytes,bool)),(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for token"
+        },
+        {
+          "selector": "0x3346d3a3",
+          "signature": "swapExactPtForSy(address,address,uint256,uint256,(address,uint256,((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],((uint256,uint256,uint256,uint8,address,address,address,address,uint256,uint256,uint256,bytes),bytes,uint256)[],bytes))",
+          "label": "Swap exact pt for sy"
+        }
+      ]
+    }
+  ],
+  "incidents": []
+}

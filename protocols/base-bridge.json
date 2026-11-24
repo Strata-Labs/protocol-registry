@@ -1,0 +1,133 @@
+{
+  "slug": "base-bridge",
+  "name": "Base Bridge",
+  "aliases": [
+    "base bridge",
+    "base standard bridge"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "3780"
+  ],
+  "website": "https://bridge.base.org",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "base-contract-deployments-mainnet",
+      "kind": "repo",
+      "url": "https://github.com/base/contract-deployments/blob/e6797dfd6ac03b35d0ddd7eb369ab94bbc5fcd31/archive/legacy/mainnet/addresses.json",
+      "description": "Base mainnet L1 contract addresses (base/contract-deployments)"
+    },
+    {
+      "id": "base-predeploys",
+      "kind": "repo",
+      "url": "https://github.com/base/contracts/blob/b9b76d97dca3c420098f597ebc65bee4f28001b7/src/libraries/Predeploys.sol",
+      "description": "Base L2 predeploy addresses (base/contracts Predeploys.sol)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+      "label": "L1StandardBridge",
+      "sourceId": "base-contract-deployments-mainnet",
+      "functions": [
+        {
+          "selector": "0xb1a1a882",
+          "signature": "depositETH(uint32,bytes)",
+          "label": "Deposit ETH to Base"
+        },
+        {
+          "selector": "0x9a2ac6d5",
+          "signature": "depositETHTo(address,uint32,bytes)",
+          "label": "Deposit ETH to Base for a recipient"
+        },
+        {
+          "selector": "0x58a997f6",
+          "signature": "depositERC20(address,address,uint256,uint32,bytes)",
+          "label": "Deposit ERC-20 to Base"
+        },
+        {
+          "selector": "0x838b2520",
+          "signature": "depositERC20To(address,address,address,uint256,uint32,bytes)",
+          "label": "Deposit ERC-20 to Base for a recipient"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "messenger()",
+          "returns": "0x866E82a600A1414e583f7F13623F1aC5d58b0Afa"
+        },
+        {
+          "signature": "OTHER_BRIDGE()",
+          "returns": "0x4200000000000000000000000000000000000010"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x61525EaaCDdB97D9184aFc205827E6A4fd0Bf62A",
+        "admin": "0x0475cBCAebd9CE8AfA5025828d5b98DFb67E059E"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x49048044D57e1C92A77f79988d21Fa8fAF74E97e",
+      "label": "OptimismPortal",
+      "sourceId": "base-contract-deployments-mainnet",
+      "functions": [
+        {
+          "selector": "0x4870496f",
+          "signature": "proveWithdrawalTransaction((uint256,address,address,uint256,uint256,bytes),uint256,(bytes32,bytes32,bytes32,bytes32),bytes[])",
+          "label": "Prove a withdrawal from Base"
+        },
+        {
+          "selector": "0x8c3152e9",
+          "signature": "finalizeWithdrawalTransaction((uint256,address,address,uint256,uint256,bytes))",
+          "label": "Finalize a proven withdrawal from Base"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "systemConfig()",
+          "returns": "0x73a79Fab69143498Ed3712e519A88a918e1f4072"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x03863Ab7F64B733cFF85C8fF44a86601C568Ca70",
+        "admin": "0x0475cBCAebd9CE8AfA5025828d5b98DFb67E059E"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4200000000000000000000000000000000000010",
+      "label": "L2StandardBridge",
+      "sourceId": "base-predeploys",
+      "functions": [
+        {
+          "selector": "0x32b7006d",
+          "signature": "withdraw(address,uint256,uint32,bytes)",
+          "label": "Withdraw to Ethereum"
+        },
+        {
+          "selector": "0xa3a79548",
+          "signature": "withdrawTo(address,address,uint256,uint32,bytes)",
+          "label": "Withdraw to Ethereum for a recipient"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "messenger()",
+          "returns": "0x4200000000000000000000000000000000000007"
+        },
+        {
+          "signature": "OTHER_BRIDGE()",
+          "returns": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xff312C3496f0848CD94d71dC06C434D487A46a10",
+        "admin": "0x4200000000000000000000000000000000000018"
+      }
+    }
+  ],
+  "incidents": []
+}

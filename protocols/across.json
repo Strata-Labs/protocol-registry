@@ -1,0 +1,112 @@
+{
+  "slug": "across",
+  "name": "Across",
+  "aliases": [
+    "across protocol"
+  ],
+  "category": "bridge",
+  "defillamaIds": [
+    "1207"
+  ],
+  "website": "https://across.to",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "across-contracts-deployed-addresses",
+      "kind": "repo",
+      "url": "https://github.com/across-protocol/contracts/blob/08df779bcedc4a7b867494cb3e6e50ba5c57995c/broadcast/deployed-addresses.json",
+      "description": "Across deployed addresses, all chains (across-protocol/contracts)"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5",
+      "label": "SpokePool",
+      "sourceId": "across-contracts-deployed-addresses",
+      "functions": [
+        {
+          "selector": "0xad5425c6",
+          "signature": "deposit(bytes32,bytes32,bytes32,bytes32,uint256,uint256,uint256,bytes32,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (deposit)"
+        },
+        {
+          "selector": "0x7b939232",
+          "signature": "depositV3(address,address,address,address,uint256,uint256,uint256,address,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (depositV3)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "crossDomainAdmin()",
+          "returns": "0xc186fA914353c44b2E33eBE05f21846F1048bEda"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc186fA914353c44b2E33eBE05f21846F1048bEda",
+      "label": "HubPool",
+      "sourceId": "across-contracts-deployed-addresses",
+      "functions": []
+    },
+    {
+      "chainId": 8453,
+      "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64",
+      "label": "SpokePool",
+      "sourceId": "across-contracts-deployed-addresses",
+      "functions": [
+        {
+          "selector": "0xad5425c6",
+          "signature": "deposit(bytes32,bytes32,bytes32,bytes32,uint256,uint256,uint256,bytes32,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (deposit)"
+        },
+        {
+          "selector": "0x7b939232",
+          "signature": "depositV3(address,address,address,address,uint256,uint256,uint256,address,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (depositV3)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "crossDomainAdmin()",
+          "returns": "0xc186fA914353c44b2E33eBE05f21846F1048bEda"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xf23C6C04A2B88e8651FE99bbDccbB5C9D306e6B0"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xD29C85F15DF544bA632C9E25829fd29d767d7978",
+      "label": "SpokePool",
+      "sourceId": "across-contracts-deployed-addresses",
+      "functions": [
+        {
+          "selector": "0xad5425c6",
+          "signature": "deposit(bytes32,bytes32,bytes32,bytes32,uint256,uint256,uint256,bytes32,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (deposit)"
+        },
+        {
+          "selector": "0x7b939232",
+          "signature": "depositV3(address,address,address,address,uint256,uint256,uint256,address,uint32,uint32,uint32,bytes)",
+          "label": "Bridge (depositV3)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "crossDomainAdmin()",
+          "returns": "0xc186fA914353c44b2E33eBE05f21846F1048bEda"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x1771c470d41b8c39338450C380bf2C080a2CEdD8"
+      }
+    }
+  ],
+  "incidents": []
+}
