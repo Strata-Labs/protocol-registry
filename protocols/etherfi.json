@@ -1,0 +1,216 @@
+{
+  "slug": "etherfi",
+  "name": "ether.fi",
+  "aliases": [
+    "ether.fi",
+    "etherfi",
+    "eeth",
+    "weeth"
+  ],
+  "category": "staking",
+  "defillamaIds": [
+    "2626",
+    "parent#ether-fi"
+  ],
+  "website": "https://ether.fi",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "etherfi-smart-contracts-deployed",
+      "kind": "repo",
+      "url": "https://github.com/etherfi-protocol/smart-contracts/blob/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+      "description": "ether.fi smart-contracts repo, Deployed addresses (Ethereum mainnet)"
+    },
+    {
+      "id": "onchain-etherfi-links",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x308861A430be4cce5502d0A12724771Fc6DaF216#readProxyContract",
+      "description": "LiquidityPool.eETH(), withdrawRequestNFT() and etherFiRedemptionManager(), plus the liquidityPool() and token getters on weETH, the withdrawal NFT, the redemption manager and the deposit adapter, must point at the listed contracts; verify-onchain checks them on every run"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x308861A430be4cce5502d0A12724771Fc6DaF216",
+      "label": "LiquidityPool",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0xd0e30db0",
+          "signature": "deposit()",
+          "label": "Stake ETH for eETH"
+        },
+        {
+          "selector": "0xf340fa01",
+          "signature": "deposit(address)",
+          "label": "Stake ETH for eETH (referral)"
+        },
+        {
+          "selector": "0x397a1b28",
+          "signature": "requestWithdraw(address,uint256)",
+          "label": "Request ETH withdrawal"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "eETH()",
+          "returns": "0x35fA164735182de50811E8e2E824cFb9B6118ac2"
+        },
+        {
+          "signature": "withdrawRequestNFT()",
+          "returns": "0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c"
+        },
+        {
+          "signature": "etherFiRedemptionManager()",
+          "returns": "0xDadEf1fFBFeaAB4f68A9fD181395F68b4e4E7Ae0"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x17A16747D03006c9754548AC0d0afF48783A4a45"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+      "label": "weETH",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0xea598cb0",
+          "signature": "wrap(uint256)",
+          "label": "Wrap eETH"
+        },
+        {
+          "selector": "0xde0e9a3e",
+          "signature": "unwrap(uint256)",
+          "label": "Unwrap weETH"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "eETH()",
+          "returns": "0x35fA164735182de50811E8e2E824cFb9B6118ac2"
+        },
+        {
+          "signature": "liquidityPool()",
+          "returns": "0x308861A430be4cce5502d0A12724771Fc6DaF216"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c",
+      "label": "WithdrawRequestNFT",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0xb13acedd",
+          "signature": "claimWithdraw(uint256)",
+          "label": "Claim withdrawal"
+        },
+        {
+          "selector": "0x24fccdcf",
+          "signature": "batchClaimWithdraw(uint256[])",
+          "label": "Claim withdrawals"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "liquidityPool()",
+          "returns": "0x308861A430be4cce5502d0A12724771Fc6DaF216"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xcfC6d9Bd7411962Bfe7145451A7EF71A24b6A7A2",
+      "label": "DepositAdapter",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0xef54591d",
+          "signature": "depositETHForWeETH(address)",
+          "label": "Stake ETH for weETH"
+        },
+        {
+          "selector": "0xe5ce314c",
+          "signature": "depositWETHForWeETH(uint256,address)",
+          "label": "Stake WETH for weETH"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "weETH()",
+          "returns": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee"
+        },
+        {
+          "signature": "liquidityPool()",
+          "returns": "0x308861A430be4cce5502d0A12724771Fc6DaF216"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xE774E19f087523EA316fCCb4B156169153f18b9d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xDadEf1fFBFeaAB4f68A9fD181395F68b4e4E7Ae0",
+      "label": "EtherFiRedemptionManager",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0x6dcc078e",
+          "signature": "redeemEEth(uint256,address,address)",
+          "label": "Instant redeem eETH"
+        },
+        {
+          "selector": "0x50cd3742",
+          "signature": "redeemWeEth(uint256,address,address)",
+          "label": "Instant redeem weETH"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "liquidityPool()",
+          "returns": "0x308861A430be4cce5502d0A12724771Fc6DaF216"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x5D53B303D62a7861f88650045b8D5DeB59dfb3Dc"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xFbfe6b9cEe0E555Bad7e2E7309EFFC75200cBE38",
+      "label": "WeETHWithdrawAdapter",
+      "sourceId": "etherfi-smart-contracts-deployed",
+      "functions": [
+        {
+          "selector": "0xccc143b8",
+          "signature": "requestWithdraw(uint256,address)",
+          "label": "Request withdrawal (weETH)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "liquidityPool()",
+          "returns": "0x308861A430be4cce5502d0A12724771Fc6DaF216"
+        },
+        {
+          "signature": "weETH()",
+          "returns": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xbe386B1Fb51ffAcAE0522a5dA099371cd4a2AAeA"
+      }
+    }
+  ],
+  "incidents": []
+}
