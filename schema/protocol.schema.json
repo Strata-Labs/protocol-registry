@@ -53,6 +53,11 @@
           "address": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" },
           "label": { "type": "string", "minLength": 1 },
           "sourceId": { "type": "string" },
+          "alsoSourceIds": {
+            "description": "Independent second sources for the same address.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "proxy": {
             "description": "EIP-1967 proxy. implementation is recorded by verify-onchain --write; admin is omitted when the proxy keeps it outside the admin slot.",
             "type": "object",

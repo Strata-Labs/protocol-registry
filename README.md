@@ -48,6 +48,7 @@ Rules for entries:
 - Every address comes from the pinned source file, never from memory. Repo sources are pinned to a commit SHA and name the file.
 - `functions` lists user-facing actions only (supply, withdraw, deposit, swap). Never `approve`, `permit`, transfers or other operator calls; validate rejects them.
 - A contract that is a proxy has a `proxy` record; `verify-onchain --write` fills it from the EIP-1967 slots.
+- A contract may list independent second sources in `alsoSourceIds`; repo ones are checked by `sync --check` like the primary.
 - Where the protocol has its own on-chain registry, add `onchainChecks` so the address is confirmed by a read. Checks may take typed `args` (a bytes32 can be `{"ascii": "KEY"}` or `{"keccak": "text"}`) and call another contract with `target`.
 - Selectors are checked in the bytecode that runs them: the contract, its EIP-1967 implementation, or where `selectorCheck` points (Aragon proxies, facet routers).
 - Adding a protocol: write the file, run `npm run verify -- --write` (needs RPC env), then `npm run validate`.

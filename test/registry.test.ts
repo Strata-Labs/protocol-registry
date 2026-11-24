@@ -104,3 +104,13 @@ describe("onchainChecks", () => {
     expect(problems(p).length).toBeGreaterThan(0);
   });
 });
+
+describe("alsoSourceIds", () => {
+  it("must name existing sources other than sourceId", () => {
+    const p = base();
+    p.contracts[0]!.alsoSourceIds = ["repo"];
+    expect(problems(p).join("\n")).toMatch(/repeats sourceId/);
+    p.contracts[0]!.alsoSourceIds = ["nope"];
+    expect(problems(p).join("\n")).toMatch(/unknown alsoSourceIds/);
+  });
+});

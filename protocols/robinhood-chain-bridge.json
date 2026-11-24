@@ -16,6 +16,18 @@
       "kind": "docs",
       "url": "https://docs.robinhood.com/chain/protocol-contracts",
       "description": "Robinhood Chain protocol contracts (docs page, no repo backing)"
+    },
+    {
+      "id": "l2beat-robinhood-discovered",
+      "kind": "repo",
+      "url": "https://github.com/l2beat/l2beat/blob/23f893eeb560fe114687d6d68d61772715dbc4be/packages/config/src/projects/robinhood/discovered.json",
+      "description": "L2BEAT's on-chain discovery of Robinhood Chain: Inbox, Bridge, Outbox and both gateway routers (third party, independent of Robinhood)"
+    },
+    {
+      "id": "arbitrum-docs-contract-addresses",
+      "kind": "repo",
+      "url": "https://github.com/OffchainLabs/arbitrum-docs/blob/381411ee6a0d8206fe195d45f5c5ec4d2977116e/scripts/data/contract-addresses.data.ts",
+      "description": "Arbitrum docs address data: ArbSys precompile at 0x...64 on every Arbitrum chain"
     }
   ],
   "contracts": [
@@ -49,7 +61,10 @@
       "proxy": {
         "implementation": "0x8D3b93dfFFf4842E7B61FB553b383db2C6BC91c6",
         "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-      }
+      },
+      "alsoSourceIds": [
+        "l2beat-robinhood-discovered"
+      ]
     },
     {
       "chainId": 1,
@@ -70,7 +85,10 @@
       "proxy": {
         "implementation": "0xC678f7B95A7D1F77c6024c0086301D21402854b1",
         "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-      }
+      },
+      "alsoSourceIds": [
+        "l2beat-robinhood-discovered"
+      ]
     },
     {
       "chainId": 1,
@@ -97,7 +115,10 @@
       "proxy": {
         "implementation": "0x396765AEbE540575ef927F769b0d7b89594f931c",
         "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-      }
+      },
+      "alsoSourceIds": [
+        "l2beat-robinhood-discovered"
+      ]
     },
     {
       "chainId": 1,
@@ -129,7 +150,10 @@
       "proxy": {
         "implementation": "0x6525137BfF366fbc0A89E3e5A4d244B5A0090a6D",
         "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-      }
+      },
+      "alsoSourceIds": [
+        "l2beat-robinhood-discovered"
+      ]
     },
     {
       "chainId": 4663,
@@ -152,7 +176,10 @@
       "proxy": {
         "implementation": "0x030c64a359Be400AF05F9230A6F65F30537cdd12",
         "admin": "0xa3Acd31AFb851B4eB9DAD00F5204c01D924267dF"
-      }
+      },
+      "alsoSourceIds": [
+        "l2beat-robinhood-discovered"
+      ]
     },
     {
       "chainId": 4663,
@@ -170,6 +197,9 @@
           "signature": "sendTxToL1(address,bytes)",
           "label": "Send an L2 to L1 message"
         }
+      ],
+      "alsoSourceIds": [
+        "arbitrum-docs-contract-addresses"
       ]
     }
   ],

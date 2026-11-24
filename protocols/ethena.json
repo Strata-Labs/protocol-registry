@@ -21,6 +21,12 @@
       "description": "Ethena docs, Key Addresses page (GitBook; no repo backs it, so this source is not pinned to a commit)"
     },
     {
+      "id": "ledger-erc7730-ethena",
+      "kind": "repo",
+      "url": "https://github.com/LedgerHQ/clear-signing-erc7730-registry/blob/ff952e2a341d973d302b925cf8ddb5a0603b87d5/registry/ethena/calldata-ethena.json",
+      "description": "Ledger ERC-7730 clear-signing descriptor for Ethena; lists sUSDe on chain 1"
+    },
+    {
       "id": "onchain-susde-asset",
       "kind": "onchain",
       "url": "https://etherscan.io/address/0x9D39A5DE30e57443BfF2A8307A4256c8797A3497#readContract",
@@ -32,7 +38,7 @@
       "chainId": 1,
       "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
       "label": "sUSDe (StakedUSDeV2)",
-      "sourceId": "ethena-docs-key-addresses",
+      "sourceId": "ledger-erc7730-ethena",
       "functions": [
         {
           "selector": "0x6e553f65",
@@ -75,6 +81,9 @@
           "signature": "asset()",
           "returns": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"
         }
+      ],
+      "alsoSourceIds": [
+        "ethena-docs-key-addresses"
       ]
     }
   ],

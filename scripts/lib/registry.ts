@@ -14,6 +14,7 @@ export type Contract = {
   address: string;
   label: string;
   sourceId: string;
+  alsoSourceIds?: string[];
   proxy?: { implementation: string; admin?: string };
   functions: { selector: string; signature: string; label: string }[];
   onchainChecks?: OnchainCheck[];
@@ -89,6 +90,10 @@ export function checkProtocol(p: unknown, file = "protocol"): string[] {
     if (seen.has(key)) err(`duplicate contract ${key}`);
     seen.add(key);
     if (!sourceIds.has(c.sourceId)) err(`${at}: unknown sourceId ${c.sourceId}`);
+    for (const id of c.alsoSourceIds ?? []) {
+      if (!sourceIds.has(id)) err(`${at}: unknown alsoSourceIds entry ${id}`);
+      if (id === c.sourceId) err(`${at}: alsoSourceIds repeats sourceId ${id}`);
+    }
     if (c.proxy) {
       checksummed(c.proxy.implementation, `${at} proxy.implementation`);
       if (c.proxy.admin) checksummed(c.proxy.admin, `${at} proxy.admin`);

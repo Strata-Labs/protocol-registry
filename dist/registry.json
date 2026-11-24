@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-24T14:36:12.706Z",
-  "gitSha": "42307767cd151a64ff67fc2ba4d32fc1f8bafcf8",
-  "digest": "0848e03969e2ee1e1ef33a60d9792091679c9542397602e042e965f0791eca8c",
+  "generatedAt": "2026-11-24T14:42:47.695Z",
+  "gitSha": "9422891d586e054b4e6dc7192bc0f270d03a9d19",
+  "digest": "3a0b20f213f4dca3088ac9903b747b706b591d617c1ed5c846bac76349980f30",
   "protocols": [
     {
       "slug": "0x",
@@ -2073,6 +2073,12 @@
           "description": "Ethena docs, Key Addresses page (GitBook; no repo backs it, so this source is not pinned to a commit)"
         },
         {
+          "id": "ledger-erc7730-ethena",
+          "kind": "repo",
+          "url": "https://github.com/LedgerHQ/clear-signing-erc7730-registry/blob/ff952e2a341d973d302b925cf8ddb5a0603b87d5/registry/ethena/calldata-ethena.json",
+          "description": "Ledger ERC-7730 clear-signing descriptor for Ethena; lists sUSDe on chain 1"
+        },
+        {
           "id": "onchain-susde-asset",
           "kind": "onchain",
           "url": "https://etherscan.io/address/0x9D39A5DE30e57443BfF2A8307A4256c8797A3497#readContract",
@@ -2084,7 +2090,7 @@
           "chainId": 1,
           "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
           "label": "sUSDe (StakedUSDeV2)",
-          "sourceId": "ethena-docs-key-addresses",
+          "sourceId": "ledger-erc7730-ethena",
           "functions": [
             {
               "selector": "0x6e553f65",
@@ -2127,6 +2133,9 @@
               "signature": "asset()",
               "returns": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"
             }
+          ],
+          "alsoSourceIds": [
+            "ethena-docs-key-addresses"
           ]
         }
       ],
@@ -4550,6 +4559,18 @@
           "kind": "docs",
           "url": "https://docs.robinhood.com/chain/protocol-contracts",
           "description": "Robinhood Chain protocol contracts (docs page, no repo backing)"
+        },
+        {
+          "id": "l2beat-robinhood-discovered",
+          "kind": "repo",
+          "url": "https://github.com/l2beat/l2beat/blob/23f893eeb560fe114687d6d68d61772715dbc4be/packages/config/src/projects/robinhood/discovered.json",
+          "description": "L2BEAT's on-chain discovery of Robinhood Chain: Inbox, Bridge, Outbox and both gateway routers (third party, independent of Robinhood)"
+        },
+        {
+          "id": "arbitrum-docs-contract-addresses",
+          "kind": "repo",
+          "url": "https://github.com/OffchainLabs/arbitrum-docs/blob/381411ee6a0d8206fe195d45f5c5ec4d2977116e/scripts/data/contract-addresses.data.ts",
+          "description": "Arbitrum docs address data: ArbSys precompile at 0x...64 on every Arbitrum chain"
         }
       ],
       "contracts": [
@@ -4583,7 +4604,10 @@
           "proxy": {
             "implementation": "0x8D3b93dfFFf4842E7B61FB553b383db2C6BC91c6",
             "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-          }
+          },
+          "alsoSourceIds": [
+            "l2beat-robinhood-discovered"
+          ]
         },
         {
           "chainId": 1,
@@ -4604,7 +4628,10 @@
           "proxy": {
             "implementation": "0xC678f7B95A7D1F77c6024c0086301D21402854b1",
             "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-          }
+          },
+          "alsoSourceIds": [
+            "l2beat-robinhood-discovered"
+          ]
         },
         {
           "chainId": 1,
@@ -4631,7 +4658,10 @@
           "proxy": {
             "implementation": "0x396765AEbE540575ef927F769b0d7b89594f931c",
             "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-          }
+          },
+          "alsoSourceIds": [
+            "l2beat-robinhood-discovered"
+          ]
         },
         {
           "chainId": 1,
@@ -4663,7 +4693,10 @@
           "proxy": {
             "implementation": "0x6525137BfF366fbc0A89E3e5A4d244B5A0090a6D",
             "admin": "0x1232813BDd40aa9d53066A880dE78a4Be70B90FD"
-          }
+          },
+          "alsoSourceIds": [
+            "l2beat-robinhood-discovered"
+          ]
         },
         {
           "chainId": 4663,
@@ -4686,7 +4719,10 @@
           "proxy": {
             "implementation": "0x030c64a359Be400AF05F9230A6F65F30537cdd12",
             "admin": "0xa3Acd31AFb851B4eB9DAD00F5204c01D924267dF"
-          }
+          },
+          "alsoSourceIds": [
+            "l2beat-robinhood-discovered"
+          ]
         },
         {
           "chainId": 4663,
@@ -4704,6 +4740,9 @@
               "signature": "sendTxToL1(address,bytes)",
               "label": "Send an L2 to L1 message"
             }
+          ],
+          "alsoSourceIds": [
+            "arbitrum-docs-contract-addresses"
           ]
         }
       ],
@@ -5524,6 +5563,18 @@
           "kind": "docs",
           "url": "https://docs.usdt0.to/technical-documentation/deployments",
           "description": "USDT0 deployments (docs page, no repo backing)"
+        },
+        {
+          "id": "layerzero-metadata-usdt0",
+          "kind": "docs",
+          "url": "https://metadata.layerzero-api.com/v1/metadata/experiment/ofts/list?symbols=USDT0",
+          "description": "LayerZero OFT metadata API: USDT0 on ethereum is an OFT_ADAPTER at this address over canonical USDT (0xdAC1...1ec7). Not a repo, so not pinned or checked by sync"
+        },
+        {
+          "id": "arbitrum-token-bridge-oft",
+          "kind": "repo",
+          "url": "https://github.com/OffchainLabs/arbitrum-token-bridge/blob/0b8e4d5069c0aba28105ed965e3dd17573004f98/packages/arb-token-bridge-ui/src/token-bridge-sdk/oftUtils.ts",
+          "description": "Arbitrum bridge UI's USDT0 OFT adapter config (oftAdapterEndpoint for Ethereum)"
         }
       ],
       "contracts": [
@@ -5704,7 +5755,11 @@
           "proxy": {
             "implementation": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
             "admin": "0x4de7096B2131E84Fd6b2042AD8cd9B4E43F728Fc"
-          }
+          },
+          "alsoSourceIds": [
+            "layerzero-metadata-usdt0",
+            "arbitrum-token-bridge-oft"
+          ]
         }
       ],
       "incidents": []

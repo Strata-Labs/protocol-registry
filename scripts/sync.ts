@@ -63,7 +63,7 @@ for (const { data: p } of loadAll()) {
   for (const s of p.sources) {
     const u = s.kind === "repo" ? parseRepoUrl(s.url) : null;
     if (!u) continue;
-    const cited = p.contracts.filter((c) => c.sourceId === s.id);
+    const cited = p.contracts.filter((c) => c.sourceId === s.id || c.alsoSourceIds?.includes(s.id));
     const pinnedSrc = await raw(u.owner, u.repo, u.sha, u.path);
     const pinned = addresses(pinnedSrc);
     if (check) {

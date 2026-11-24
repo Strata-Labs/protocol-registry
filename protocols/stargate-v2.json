@@ -75,6 +75,18 @@
       "kind": "docs",
       "url": "https://docs.usdt0.to/technical-documentation/deployments",
       "description": "USDT0 deployments (docs page, no repo backing)"
+    },
+    {
+      "id": "layerzero-metadata-usdt0",
+      "kind": "docs",
+      "url": "https://metadata.layerzero-api.com/v1/metadata/experiment/ofts/list?symbols=USDT0",
+      "description": "LayerZero OFT metadata API: USDT0 on ethereum is an OFT_ADAPTER at this address over canonical USDT (0xdAC1...1ec7). Not a repo, so not pinned or checked by sync"
+    },
+    {
+      "id": "arbitrum-token-bridge-oft",
+      "kind": "repo",
+      "url": "https://github.com/OffchainLabs/arbitrum-token-bridge/blob/0b8e4d5069c0aba28105ed965e3dd17573004f98/packages/arb-token-bridge-ui/src/token-bridge-sdk/oftUtils.ts",
+      "description": "Arbitrum bridge UI's USDT0 OFT adapter config (oftAdapterEndpoint for Ethereum)"
     }
   ],
   "contracts": [
@@ -255,7 +267,11 @@
       "proxy": {
         "implementation": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
         "admin": "0x4de7096B2131E84Fd6b2042AD8cd9B4E43F728Fc"
-      }
+      },
+      "alsoSourceIds": [
+        "layerzero-metadata-usdt0",
+        "arbitrum-token-bridge-oft"
+      ]
     }
   ],
   "incidents": []
