@@ -1,0 +1,488 @@
+{
+  "slug": "spark",
+  "name": "Spark",
+  "aliases": [
+    "sparklend",
+    "spark protocol",
+    "spark finance"
+  ],
+  "category": "lending",
+  "defillamaIds": [
+    "2929",
+    "5989",
+    "6716",
+    "parent#spark"
+  ],
+  "website": "https://spark.fi",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "spark-registry-sparklend",
+      "kind": "repo",
+      "url": "https://github.com/sparkdotfi/spark-address-registry/blob/34ca9f3d028fa59c2127d105df5e0c5099f3ce64/src/SparkLend.sol",
+      "description": "Spark address registry, SparkLend (Ethereum)"
+    },
+    {
+      "id": "spark-registry-ethereum",
+      "kind": "repo",
+      "url": "https://github.com/sparkdotfi/spark-address-registry/blob/34ca9f3d028fa59c2127d105df5e0c5099f3ce64/src/Ethereum.sol",
+      "description": "Spark address registry, Ethereum"
+    },
+    {
+      "id": "spark-registry-base",
+      "kind": "repo",
+      "url": "https://github.com/sparkdotfi/spark-address-registry/blob/34ca9f3d028fa59c2127d105df5e0c5099f3ce64/src/Base.sol",
+      "description": "Spark address registry, Base"
+    },
+    {
+      "id": "spark-registry-robinhood",
+      "kind": "repo",
+      "url": "https://github.com/sparkdotfi/spark-address-registry/blob/34ca9f3d028fa59c2127d105df5e0c5099f3ce64/src/Robinhood.sol",
+      "description": "Spark address registry, Robinhood Chain"
+    },
+    {
+      "id": "onchain-sparklend-provider",
+      "kind": "onchain",
+      "url": "https://etherscan.io/address/0x02C3eA4e34C0cBd694D2adFa2c690EECbC1793eE#readContract",
+      "description": "PoolAddressesProvider.getPool() must return the Pool and Pool.ADDRESSES_PROVIDER() the provider; token getters on sDAI, PSM3 and the savings vaults must return the token addresses the registry lists; verify-onchain checks them on every run"
+    }
+  ],
+  "contracts": [
+    {
+      "chainId": 1,
+      "address": "0x02C3eA4e34C0cBd694D2adFa2c690EECbC1793eE",
+      "label": "SparkLend PoolAddressesProvider",
+      "sourceId": "spark-registry-sparklend",
+      "functions": [],
+      "onchainChecks": [
+        {
+          "signature": "getPool()",
+          "returns": "0xC13e21B648A5Ee794902342038FF3aDAB66BE987"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xC13e21B648A5Ee794902342038FF3aDAB66BE987",
+      "label": "SparkLend Pool",
+      "sourceId": "spark-registry-sparklend",
+      "functions": [
+        {
+          "selector": "0x617ba037",
+          "signature": "supply(address,uint256,address,uint16)",
+          "label": "Supply"
+        },
+        {
+          "selector": "0x69328dec",
+          "signature": "withdraw(address,uint256,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xa415bcad",
+          "signature": "borrow(address,uint256,uint256,uint16,address)",
+          "label": "Borrow"
+        },
+        {
+          "selector": "0x573ade81",
+          "signature": "repay(address,uint256,uint256,address)",
+          "label": "Repay"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "ADDRESSES_PROVIDER()",
+          "returns": "0x02C3eA4e34C0cBd694D2adFa2c690EECbC1793eE"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x5aE329203E00f76891094DcfedD5Aca082a50e1b"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "label": "sDAI",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "dai()",
+          "returns": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+        }
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xBc65ad17c5C0a2A4D159fa5a503f4992c7B545FE",
+      "label": "Spark Savings spUSDC (v1)",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      ],
+      "proxy": {
+        "implementation": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x28B3a8fb53B741A8Fd78c0fb9A6B2393d896a43d",
+      "label": "Spark Savings spUSDC",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit (referral)"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x1b992302652A92611DCd5090D1Cb388C6377f455"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe2e7a17dFf93280dec073C995595155283e3C372",
+      "label": "Spark Savings spUSDT",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit (referral)"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x1b992302652A92611DCd5090D1Cb388C6377f455"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x80128DbB9f07b93DDE62A6daeadb69ED14a7D354",
+      "label": "Spark Savings spPYUSD",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit (referral)"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x1b992302652A92611DCd5090D1Cb388C6377f455"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xfE6eb3b609a7C8352A241f7F3A21CEA4e9209B8f",
+      "label": "Spark Savings spETH",
+      "sourceId": "spark-registry-ethereum",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit (referral)"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x1b992302652A92611DCd5090D1Cb388C6377f455"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x1601843c5E9bC251A3272907010AFa41Fa18347E",
+      "label": "PSM3",
+      "sourceId": "spark-registry-base",
+      "functions": [
+        {
+          "selector": "0x1a019e37",
+          "signature": "swapExactIn(address,address,uint256,uint256,address,uint256)",
+          "label": "Swap (exact in)"
+        },
+        {
+          "selector": "0x051f86b5",
+          "signature": "swapExactOut(address,address,uint256,uint256,address,uint256)",
+          "label": "Swap (exact out)"
+        },
+        {
+          "selector": "0x8340f549",
+          "signature": "deposit(address,address,uint256)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0xd9caed12",
+          "signature": "withdraw(address,address,uint256)",
+          "label": "Withdraw"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "usdc()",
+          "returns": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        {
+          "signature": "usds()",
+          "returns": "0x820C137fa70C8691f0e44Dc420a5e53c168921Dc"
+        },
+        {
+          "signature": "susds()",
+          "returns": "0x5875eEE11Cf8398102FdAd704C9E96607675467a"
+        }
+      ]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x3128a0F7f0ea68E7B7c9B00AFa7E41045828e858",
+      "label": "Spark Savings spUSDC",
+      "sourceId": "spark-registry-base",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x6ACC02ddd82206a44ff4EC13977E63d1a29C7723"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xde770c84FE66E063336b31737cFE9790f18c4087",
+      "label": "Spark Savings spUSDG",
+      "sourceId": "spark-registry-robinhood",
+      "functions": [
+        {
+          "selector": "0x6e553f65",
+          "signature": "deposit(uint256,address)",
+          "label": "Deposit"
+        },
+        {
+          "selector": "0x94bf804d",
+          "signature": "mint(uint256,address)",
+          "label": "Mint shares"
+        },
+        {
+          "selector": "0xb460af94",
+          "signature": "withdraw(uint256,address,address)",
+          "label": "Withdraw"
+        },
+        {
+          "selector": "0xba087652",
+          "signature": "redeem(uint256,address,address)",
+          "label": "Redeem"
+        },
+        {
+          "selector": "0x9b8d6d38",
+          "signature": "deposit(uint256,address,uint16)",
+          "label": "Deposit (referral)"
+        },
+        {
+          "selector": "0x216740a0",
+          "signature": "mint(uint256,address,uint16)",
+          "label": "Mint shares (referral)"
+        }
+      ],
+      "onchainChecks": [
+        {
+          "signature": "asset()",
+          "returns": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+        }
+      ],
+      "proxy": {
+        "implementation": "0x797c58C9779D46a437D8f57908D6d56371A55F02"
+      }
+    }
+  ],
+  "incidents": []
+}
