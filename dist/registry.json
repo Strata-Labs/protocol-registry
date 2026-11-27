@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-24T14:56:50.014Z",
-  "gitSha": "aaa4bb966485de437c6288278359d2d6356522c2",
-  "digest": "20343272e6e0650370a501122703f29af68d0305031bd7bf214ad847ef3fc7d2",
+  "generatedAt": "2026-11-27T04:18:12.209Z",
+  "gitSha": "9d723ee350d84054f4731c2536a0961473796a0a",
+  "digest": "0ec7b3cb7d8e71522183728e4ba68b35faf5b78890b8fb9da67b787e18014ef5",
   "protocols": [
     {
       "slug": "0x",
@@ -1150,7 +1150,7 @@
         "parent#compound-finance"
       ],
       "website": "https://compound.finance",
-      "status": "ok",
+      "status": "frozen",
       "sources": [
         {
           "id": "comet-mainnet-usdc",
@@ -1720,7 +1720,21 @@
           }
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "date": "2026-11-27",
+          "title": "On-chain drift (chain 8453): Comet AERO (cAEROv3): implementation changed: recorded 0x32c42397bC4B9E37061Fb1C7A8B6B55074Fe1ea0, now 0x15ED8aAE1d74debaD680C3E32bC4994C55e9FfB4",
+          "url": "https://basescan.org/address/0x784efeB622244d2348d4F2522f8860B96fbEcE89",
+          "source": "onchain"
+        },
+        {
+          "date": "2026-11-27",
+          "title": "On-chain drift (chain 8453): Comet WETH (cWETHv3): implementation changed: recorded 0x0d517F7759FD3F083E8B807936e9700B4E1374C2, now 0x0a45684A7a8700b605Ab7C64DF7611FD6E6EA1d9",
+          "url": "https://basescan.org/address/0x46e6b214b524310239732D51387075E0e70970bf",
+          "source": "onchain"
+        }
+      ],
+      "statusReason": "On-chain drift: Comet AERO (cAEROv3): implementation changed: recorded 0x32c42397bC4B9E37061Fb1C7A8B6B55074Fe1ea0, now 0x15ED8aAE1d74debaD680C3E32bC4994C55e9FfB4 (+1 more)"
     },
     {
       "slug": "cow-swap",
