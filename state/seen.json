@@ -1,5 +1,5 @@
 {
- "lastRun": "2026-11-27T20:15:39.522Z",
+ "lastRun": "2026-11-27T21:13:58.322Z",
  "seen": [
   "llama:1016:1781395200:Aztec Connect",
   "llama:1028:1651622400:MM Finance Cronos",
@@ -1375,6 +1375,8 @@
   "llama:none:1795046400:Fluidkey",
   "llama:none:1795132800:Wagyu (XMR1)",
   "llama:none:1795478400:Bullpen",
+  "llama:none:1795651200:SVT",
+  "llama:none:1795737600:Atoshi Bridge",
   "llama:parent#allbridge:1787097600:Allbridge",
   "rekt:https://www.rekt.news/Social-Recovery-Wallets-are-Broken-by-Design",
   "rekt:https://www.rekt.news/defi-ux-problem",
